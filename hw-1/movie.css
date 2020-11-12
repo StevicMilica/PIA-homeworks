@@ -4,4 +4,28 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img{
+    width: 32px;
+}
+.quotebubble{
+    padding: 10px;
+    margin: 20px;
+}
+heading > h1{
+    text-align: center;
+    font-size: 24px;
+    font-style: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+heading > img{
+    width: 64px;
+}
+.container{
+    width: 50%;
+   margin: 0 auto;
+    /* display: flex; */
+    /* align-content: center; */
 }
