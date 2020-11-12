@@ -7,7 +7,8 @@
     font-size: 12pt;
     font-family: Arial, Helvetica, sans-serif;
 }
-img{
+
+p > img{
     width: 32px;
 }
 .quotebubble{
@@ -22,6 +23,26 @@ heading > h1{
 }
 heading > img{
     width: 64px;
+}
+.critic{
+    border: 2px solid black;
+    padding:2px;
+    margin:10px;
+    
+}
+.content{
+    display: flex;
+}
+.content-main{
+    width: 75%;
+}
+.content-sidebar{
+    width: 25%;
+    margin: 10px;
+    border: 1px solid black;
+}
+.content-sidebar > img{
+    width: 100%;
 }
 .container{
     width: 50%;
