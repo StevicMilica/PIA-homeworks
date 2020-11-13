@@ -9,7 +9,7 @@
 }
 
 body {
-    background: rgb(219, 223, 209)
+    background-image: url("images/background.png");
 }
 
 header>h1 {
@@ -25,12 +25,13 @@ header>h1 {
 .container {
     width: 55%;
     margin: 0 auto;
+    box-shadow: 5px 5px 5px grey;
+
 }
 
 .content {
     display: flex;
     background-color: #EEEEEE;
-    box-shadow: 5px 5px 5px grey;
 
 }
 
@@ -40,6 +41,8 @@ header>h1 {
 
 .content-sidebar {
     width: 30%;
+    background-color: #A2B964;
+
     /* margin-top: 10px; */
     /* padding:20px; */
     /* margin-left: 10px; */
@@ -52,18 +55,20 @@ header>h1 {
 }
 
 .rating {
-    background-image: linear-gradient(lime 10%, green);
+    background-image:url("images/rbg.png");
+    background-repeat: repeat-x;
     padding: 0px;
 }
 
 .rating>span {
     font-size: 48px;
     font-weight: bold;
-    color: red
+    color: red;
+    vertical-align: bottom;
 }
 
 .rating>img {
-    height: 60px;
+    /* height: 60px; */
 }
 
 .icon {
@@ -116,7 +121,6 @@ q {
 
 .sidebar-info {
     padding: 15px;
-    background-color: #A2B964;
     font-weight: bold;
 }
 
@@ -143,4 +147,11 @@ dd {
 }
 footer{
     background-color: #A2B964;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+}
+#w3c{
+    float: right;
 }
