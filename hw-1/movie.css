@@ -31,10 +31,13 @@ body{
     border: 5px solid;
     border-color: rgb(204,204,204);
 }
+.quotebubble > img{
+    margin-right: 10px;
+}
 header > h1{
     margin: 10px;
     padding:10px;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 3px 3px 2px #999999;
     text-align: center;
     font-size: 24px;
     font-style: bold;
@@ -59,7 +62,7 @@ header > h1{
 .content-sidebar{
     width: 30%;
     margin-top: 10px;
-    padding:20px;
+    /* padding:20px; */
     margin-left: 10px;
     border: 1px solid black;
 }
@@ -67,7 +70,7 @@ header > h1{
     width: 100%;
 }
 .container{
-    width: 50%;
+    width: 55%;
    margin: 0 auto;
 }
 .critic-info{
@@ -81,5 +84,17 @@ header > h1{
     font-style: italic;
 }
 q{
-    text-align: center;
+    vertical-align: super;
+}
+.sidebar-info{
+    padding: 15px;
+    background-color: #A2B964;
+    font-weight: bold;
+}
+dl,dt,dd{
+    margin-left: revert;
+}
+dd{
+    font-weight: normal;
+    margin-bottom: 15px;
 }
