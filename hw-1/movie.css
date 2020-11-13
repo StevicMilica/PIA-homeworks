@@ -1,100 +1,146 @@
 /* Css fajl glavne stranice */
 
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-size: 12pt;
     font-family: Arial, Helvetica, sans-serif;
 }
-body{
+
+body {
     background: rgb(219, 223, 209)
 }
 
-.rating{
-    background-image: linear-gradient(lime 10%,  green);
-    padding: 0px;
-}
-.rating > span{
-    font-size: 48px;
-    font-weight: bold;
-    color:red
-}
-.icon{
-    width: 32px;
-}
-.quotebubble{
-    padding: 10px;
-    margin: 20px 20px 0px 20px;
-    background-color: white;
-    border-radius: 20px;
-    border: 5px solid;
-    border-color: rgb(204,204,204);
-}
-.quotebubble > img{
-    margin-right: 10px;
-}
-header > h1{
+header>h1 {
     margin: 10px;
-    padding:10px;
+    padding: 10px;
     text-shadow: 3px 3px 2px #999999;
     text-align: center;
     font-size: 24px;
     font-style: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.rating > img{
-    height: 60px;
-}
-.critic{
-    padding:10px;
-    margin-top:10px;
-    
+
+.container {
+    width: 55%;
+    margin: 0 auto;
 }
 
-.content{
+.content {
     display: flex;
-    background-color:rgb(238,238,238);
+    background-color: #EEEEEE;
+    box-shadow: 5px 5px 5px grey;
+
 }
-.content-main{
-    width: 75%;
+
+.content-main {
+    width: 90%;
 }
-.content-sidebar{
+
+.content-sidebar {
     width: 30%;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     /* padding:20px; */
-    margin-left: 10px;
-    border: 1px solid black;
+    /* margin-left: 10px; */
+    /* border: 1px solid black; */
 }
-.content-sidebar > img{
+
+.content-sidebar>img {
     width: 100%;
+    display: block;
 }
-.container{
-    width: 55%;
-   margin: 0 auto;
+
+.rating {
+    background-image: linear-gradient(lime 10%, green);
+    padding: 0px;
 }
-.critic-info{
+
+.rating>span {
+    font-size: 48px;
+    font-weight: bold;
+    color: red
+}
+
+.rating>img {
+    height: 60px;
+}
+
+.icon {
+    width: 32px;
+    margin-right: 5px;
+}
+
+.quotebubble {
+    padding: 1em;
+    margin: 0px 20px 0px 20px;
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid;
+    border-color: #CCCCCC;
+    width: 90%;
+}
+
+.quotebubble>img {
+    margin-right: 5px;
+}
+
+
+.critic {
+    padding: 10px;
+    margin-top: 10px;
+
+}
+
+
+
+.critic-info {
     padding-left: 20px;
     margin-top: 20px;
 }
-.critic-info > img{
-    float:left;
+
+.critic-info>img {
+    float: left;
 }
-.publication{
+
+.publication {
     font-style: italic;
+    font-size: 13pt;
 }
-q{
+
+q {
     vertical-align: super;
+    font-size: 13pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.sidebar-info{
+
+.sidebar-info {
     padding: 15px;
     background-color: #A2B964;
     font-weight: bold;
 }
-dl,dt,dd{
+
+dl,
+dt,
+dd {
     margin-left: revert;
 }
-dd{
+
+dd {
     font-weight: normal;
     margin-bottom: 15px;
+}
+
+.links {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
+
+#linkList {
+    margin: 0px;
+    padding: 0px;
+}
+footer{
+    background-color: #A2B964;
 }
