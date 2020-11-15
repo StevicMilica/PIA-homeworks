@@ -56,3 +56,6 @@ body{
 .card{
     border-color: rgb(229, 229, 229,0.5) !important;
 }
+textarea{
+    height: 20% !important;
+}
