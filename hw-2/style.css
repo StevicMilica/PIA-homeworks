@@ -3,7 +3,7 @@ html{
     scrollbar-color: #FCA311;
 }
 body{
-    background-color: #FFFFFF !important;
+    background-color: #FFF7EB !important;
 }
 #index-banner{
     width: 100%;
@@ -23,14 +23,34 @@ body{
     background-color:  #FCA311 !important;
 }
 #menu{
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/menu-2.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/bg-1.png");
     color: white;
-    height: 40%;
+    height: 30%;
     border-radius: 0px;
     background-attachment: fixed;
     background-position:bottom;
     background-repeat: no-repeat;
     background-size: cover;
+}
+#menuHeading{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#footer{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/bg-1.png");
+    color: white;
+    height: 10%;
+    border-radius: 0px;
+    background-attachment: fixed;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img-thumbnail{
+    border-color: rgb(229, 229, 229,0.1) !important;
+    background-color: rgb(229, 229, 229,0.5) !important;
+}
+.card{
+    border-color: rgb(229, 229, 229,0.5) !important;
 
 }
-
