@@ -15,3 +15,17 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:  #FCA311 !important;
+}
+#menu{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/menu-2.jpg");
+    color: white;
+    height: 40%;
+    border-radius: 0px;
+    background-attachment: fixed;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
