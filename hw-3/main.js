@@ -6,6 +6,9 @@ $.ajax({
     'dataType': "json",
     'success': function (data) {
         questionsData = data;
+        $("#qNumber").text("Pitanje br. " + questionsData[0].question_id)
+        $("#qText").text("Pitanje: " + questionsData[0].question_text)
+        let qOptions = $(".qOptions")
     }
 });
 for(let i = 0; i < questionsData.length; i++){

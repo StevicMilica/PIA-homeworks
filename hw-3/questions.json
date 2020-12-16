@@ -2,51 +2,111 @@
     {   
         "question_id":1,
         "question_text":"Koja je najvisa planina na svetu?",
-        "answer":"Mount Everest"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Mount Everest"
     },
     {
         "question_id":2,
         "question_text":"Kako se zove jedini Afro-Americki predsednik SAD-a",
-        "answer":"Barrack Obama"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Barrack Obama"
     },
     {
         "question_id":3,
         "question_text":"Koji je glavni grad Srbije?",
-        "answer":"Beograd"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Beograd"
     },
     {
         "question_id":4,
         "question_text":"Koje voce je najpoznatije po velikoj kolicini vitamina C?",
-        "answer":"Limun"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Limun"
     },
     {
         "question_id":5,
         "question_text":"Kako se naziva najvisa zgrada u Dubaiju?",
-        "answer":"Burj Khalifa"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Burj Khalifa"
     },
     {
         "question_id":6,
         "question_text":"Od navedenih zivotinja, koja zivotinja pripada vrsti sisara?",
-        "answer":"Delfin"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Delfin"
     },
     {
         "question_id":7,
         "question_text":"Koja zivotinja je poznata po tome sto spava danju, jede eukaliptus, i najjaktivnija je u nocnim satima?",
-        "answer":"Koala"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Koala"
     },
     {
         "question_id":8,
         "question_text":"Koje povrce je poznato po tome sto poboljsava ljudski vid?",
-        "answer":"Sargarepa"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Sargarepa"
     },
     {
         "question_id":9,
         "question_text":"Koji slatkis je najopasniji po pse",
-        "answer":"Cokolada"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Cokolada"
     },
     {
         "question_id":10,
         "question_text":"Koje od navedenih boja ne pripada bojama duge",
-        "answer":"Bela"
+        "answers":[
+            "Sar-Planina",
+            "Kilimandzaro",
+            "Maternhorn",
+            "Mount Everest"
+        ],
+        "correct_answer":"Bela"
     }
 ]
