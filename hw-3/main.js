@@ -1,4 +1,5 @@
 let questionsData = null;
+let correctCount = 0;
 let qIndex = 0;
 let loadQuestionData = function (index) {
     $("#qNumber").text("Pitanje br. " + questionsData[index].question_id)
@@ -32,6 +33,7 @@ let getNextQuestion = function () {
         $("#qNext").prop("disabled", true);
         $("#qNext").addClass("btn-secondary");
         $("#qNext").removeClass("btn-info");
+        alert(`Kviz je gotov. Imali ste ${correctCount} od ${questionsData.length} poena`)
     }
 }
 let getPrevQuestion = function () {
@@ -71,6 +73,7 @@ $("#qNext").click(function () {
     let result = validateAnswer(answerOptions)
     if (result) {
         alert("Tacan odgovor")
+        correctCount++;
     } else {
         alert("Pogresan odgovor");
     }
