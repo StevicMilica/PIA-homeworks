@@ -8,7 +8,12 @@ $.ajax({
         questionsData = data;
         $("#qNumber").text("Pitanje br. " + questionsData[0].question_id)
         $("#qText").text("Pitanje: " + questionsData[0].question_text)
-        let qOptions = $(".qOptions")
+        let qOptions = $(".qOption")
+        console.log(qOptions)
+        let answers = questionsData[0].answers;
+        for(let i = 0; i < answers.length;i++){
+            $(qOptions[i]).text(answers[i]);
+        }
     }
 });
 for(let i = 0; i < questionsData.length; i++){

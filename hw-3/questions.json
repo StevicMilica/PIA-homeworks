@@ -14,10 +14,10 @@
         "question_id":2,
         "question_text":"Kako se zove jedini Afro-Americki predsednik SAD-a",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Donald Trump",
+            "Michael Jackson",
+            "Geogrge Bush",
+            "Steven Universe"
         ],
         "correct_answer":"Barrack Obama"
     },
@@ -25,10 +25,10 @@
         "question_id":3,
         "question_text":"Koji je glavni grad Srbije?",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Kragujevac",
+            "New York",
+            "Beograd",
+            "Petersburgh"
         ],
         "correct_answer":"Beograd"
     },
@@ -36,10 +36,10 @@
         "question_id":4,
         "question_text":"Koje voce je najpoznatije po velikoj kolicini vitamina C?",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Limun",
+            "Paradajz",
+            "Kruska",
+            "Sljiva"
         ],
         "correct_answer":"Limun"
     },
@@ -47,10 +47,10 @@
         "question_id":5,
         "question_text":"Kako se naziva najvisa zgrada u Dubaiju?",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Burj Khalifa",
+            "Sveta Marija",
+            "Empire State Building",
+            "Avalski toranj"
         ],
         "correct_answer":"Burj Khalifa"
     },
@@ -58,10 +58,10 @@
         "question_id":6,
         "question_text":"Od navedenih zivotinja, koja zivotinja pripada vrsti sisara?",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Delfin",
+            "Boa konstriktorka",
+            "Crna udovica",
+            "Velika bela ajkula"
         ],
         "correct_answer":"Delfin"
     },
@@ -69,10 +69,10 @@
         "question_id":7,
         "question_text":"Koja zivotinja je poznata po tome sto spava danju, jede eukaliptus, i najjaktivnija je u nocnim satima?",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Koala",
+            "Lemur",
+            "Kengur",
+            "Nilski konj"
         ],
         "correct_answer":"Koala"
     },
@@ -80,10 +80,10 @@
         "question_id":8,
         "question_text":"Koje povrce je poznato po tome sto poboljsava ljudski vid?",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Sargarepa",
+            "Lubenica",
+            "Patlidzan",
+            "Krastavac"
         ],
         "correct_answer":"Sargarepa"
     },
@@ -91,10 +91,10 @@
         "question_id":9,
         "question_text":"Koji slatkis je najopasniji po pse",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Cokolada",
+            "Smoki",
+            "Cips",
+            "Gumene bombone"
         ],
         "correct_answer":"Cokolada"
     },
@@ -102,10 +102,10 @@
         "question_id":10,
         "question_text":"Koje od navedenih boja ne pripada bojama duge",
         "answers":[
-            "Sar-Planina",
-            "Kilimandzaro",
-            "Maternhorn",
-            "Mount Everest"
+            "Plava",
+            "Crvena",
+            "Zuta",
+            "Crna"
         ],
         "correct_answer":"Bela"
     }
