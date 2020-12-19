@@ -22,11 +22,20 @@
             <span class="navbar-brand mb-0 h1">Kviz znanja</span>
         </div>
     </nav>
-    <div class="container mt-3">
-        <div class="alert alert-primary" role="alert" id = "answerCorrect" style = "display:none">
+    <div class="container" id = "userData">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Korisnicko ime</label>
+                <input type="text" class="form-control" id="userName" aria-describedby="uname">
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="button" id = "quizStart">Zapocni kviz</button>
+            </div>
+    </div>
+    <div class="container mt-3" style = "display:none" id = "quizContainer">
+        <div class="alert alert-primary" role="alert" id="answerCorrect" style="display:none">
             Vas odgovor je tacan!
         </div>
-        <div class="alert alert-danger" role="alert" id = "answerIncorrect" style = "display:none">
+        <div class="alert alert-danger" role="alert" id="answerIncorrect" style="display:none">
             Nazalost, Vas odgovor nije tacan.
         </div>
         <div class="card">

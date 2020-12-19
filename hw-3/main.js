@@ -125,3 +125,28 @@ $("#qSkip").click(function () {
     userAnswers[qIndex] = -1;
     getNextQuestion();
 })
+$("#quizStart").click(function () {
+    if ($("#userName").val() == '') {
+        alert("Korisnicko ime je obavezno, unesite ga u polju ispod")
+    }
+    else{
+        // console.log("Promenjen")
+        let username = $("#userName").val();
+        sessionStorage.setItem('username',username)
+        $("#userData").slideToggle();
+        $("#quizContainer").slideDown();
+        
+    }
+})
+
+let storeResults = function () {
+    let results = JSON.parse(localStorage.getItem("results"));
+    let userName = sessionStorage.getItem("username");
+    let result = correctCount;
+    let userProfile = {
+        "userName": userName,
+        "result": result
+    }
+    results.push(userProfile)
+    localStorage.setItem("results", JSON.stringify(results));
+}
