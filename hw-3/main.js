@@ -114,7 +114,7 @@ $("#qNext").click(function () {
         $("#answerIncorrect").slideUp();
 
         getNextQuestion();
-    }, 3000);
+    }, 1000);
 })
 $("#qPrev").click(function () {
     getPrevQuestion();
@@ -124,6 +124,13 @@ $("#qSkip").click(function () {
     console.log(answerOptions)
     userAnswers[qIndex] = -1;
     getNextQuestion();
+})
+$("#giveUp").click(function(){
+    storeResults();
+    showResults();
+    qIndex = 0;
+    $("#quizContainer").hide();
+    $("#resultData").show();
 })
 $("#quizStart").click(function () {
     if ($("#userName").val() == '') {
@@ -138,15 +145,25 @@ $("#quizStart").click(function () {
         
     }
 })
+let showResults = function(){
+    $("#results").show();
+    console.log(localStorage)
+}
 
 let storeResults = function () {
     let results = JSON.parse(localStorage.getItem("results"));
+    if(results == null){
+        results = []
+    }
+    console.log(results)
     let userName = sessionStorage.getItem("username");
     let result = correctCount;
     let userProfile = {
         "userName": userName,
         "result": result
     }
+    console.log(userProfile)
     results.push(userProfile)
+    console.log(results)
     localStorage.setItem("results", JSON.stringify(results));
 }
