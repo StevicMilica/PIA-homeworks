@@ -18,6 +18,7 @@ let loadQuestionData = function (index) {
             $(qOptions[i]).text(answers[i]);
         }
     } else {
+        $("#answerText").val('');
         $("#qTextAnswer").fadeIn();
         $("#qAnswers").fadeOut();
 
@@ -175,4 +176,25 @@ let finishQuiz = function () {
     storeResults();
     showResults();
     $("#quizContainer").slideToggle();
+}
+let interval;
+let time = 20;
+function timer(){
+    interval = setInterval(function(){
+        time--;
+        $("#timer").text("00:" + time);
+        if(time<10)
+        $("#timer").text("00:0" + time);
+        if(time <= 0){
+            clearInterval(interval)
+        }
+    }, 1000);
+
+}
+function startTimer(){
+    time = 20;
+    timer();
+}
+function stopTimer(){
+    clearInterval(interval);
 }

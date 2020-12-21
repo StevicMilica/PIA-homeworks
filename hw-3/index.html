@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -22,6 +22,13 @@
             <span class="navbar-brand mb-0 h1">Kviz znanja</span>
         </div>
     </nav>
+            <div class = "timer bg-light p-3">
+            <p class = "fs-4 text-center ">Preostalo vreme</p>
+
+            <p class = "fs-2 text-center" id = "timer">00:00</p>
+        </div>
+    <div class="container mt-5 pt-5">
+
     <div class="container" id="userData">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Korisnicko ime</label>
@@ -99,7 +106,12 @@
                     <a href="#" class="btn btn-warning float-start mx-2" id="reset">Pokusaj ponovo</a>
                 </div>
     </div>
-
+    </div>
+    <button onclick = 'startTimer()'>Start timer</button>
+    <button onclick = 'stopTimer()'>Stop Timer</button>
+    <!-- <div class="container">
+        <p id = "timer">10</p>
+    </div> -->
 
 
 
