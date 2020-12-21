@@ -9,10 +9,18 @@ $(document).ready(function () {
 let loadQuestionData = function (index) {
     $("#qNumber").text("Pitanje br. " + questionsData[index].question_id)
     $("#qText").text("Pitanje: " + questionsData[index].question_text)
-    let qOptions = $(".qOption")
-    let answers = questionsData[index].answers;
-    for (let i = 0; i < answers.length; i++) {
-        $(qOptions[i]).text(answers[i]);
+    if (!questionsData[index].fillable) {
+        $("#qAnswers").fadeIn();
+        $("#qTextAnswer").fadeOut();
+        let qOptions = $(".qOption")
+        let answers = questionsData[index].answers;
+        for (let i = 0; i < answers.length; i++) {
+            $(qOptions[i]).text(answers[i]);
+        }
+    } else {
+        $("#qTextAnswer").fadeIn();
+        $("#qAnswers").fadeOut();
+
     }
 }
 
@@ -111,19 +119,27 @@ let reset = function () {
 let validateAnswer = function (answOpt) {
     let answer = null;
     let answered = false;
-    for (let i = 0; i < answOpt.length; i++) {
-        if ($(answOpt[i]).is(":checked")) {
-            let indChecked = i;
-            answer = $("label[for = '" + $(answOpt[i]).attr("id") + "']").text();
-            userAnswers[qIndex] = indChecked;
-            answered = true;
-            break;
+    if (!questionsData[qIndex].fillable) {
+        for (let i = 0; i < answOpt.length; i++) {
+            if ($(answOpt[i]).is(":checked")) {
+                let indChecked = i;
+                answer = $("label[for = '" + $(answOpt[i]).attr("id") + "']").text();
+                userAnswers[qIndex] = indChecked;
+                answered = true;
+                break;
+            }
+        }
+        if (!answered) {
+            userAnswers[qIndex] = -1;
         }
     }
-    if (!answered) {
-        userAnswers[qIndex] = -1;
+    else{
+        answer = $("#answerText").val();
+        if (!answer == '') {
+            userAnswers[qIndex] = -1;
+        }
     }
-    if (answer == questionsData[qIndex].correct_answer) {
+    if (answer.toLowerCase() == questionsData[qIndex].correct_answer.toLowerCase()) {
         return 1;
     } else {
         return 0;

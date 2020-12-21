@@ -2,6 +2,7 @@
     {   
         "question_id":1,
         "question_text":"Koja je najvisa planina na svetu?",
+        "fillable":false,
         "answers":[
             "Sar-Planina",
             "Kilimandzaro",
@@ -13,6 +14,7 @@
     {
         "question_id":2,
         "question_text":"Kako se zove jedini Afro-Americki predsednik SAD-a",
+        "fillable":false,
         "answers":[
             "Donald Trump",
             "Michael Jackson",
@@ -24,6 +26,7 @@
     {
         "question_id":3,
         "question_text":"Koji je glavni grad Srbije?",
+        "fillable":true,
         "answers":[
             "Kragujevac",
             "New York",
@@ -35,6 +38,7 @@
     {
         "question_id":4,
         "question_text":"Koje voce je najpoznatije po velikoj kolicini vitamina C?",
+        "fillable":true,
         "answers":[
             "Limun",
             "Paradajz",
@@ -46,6 +50,7 @@
     {
         "question_id":5,
         "question_text":"Kako se naziva najvisa zgrada u Dubaiju?",
+        "fillable":false,
         "answers":[
             "Burj Khalifa",
             "Sveta Marija",
@@ -57,6 +62,7 @@
     {
         "question_id":6,
         "question_text":"Od navedenih zivotinja, koja zivotinja pripada vrsti sisara?",
+        "fillable":false,
         "answers":[
             "Delfin",
             "Boa konstriktorka",
@@ -68,6 +74,7 @@
     {
         "question_id":7,
         "question_text":"Koja zivotinja je poznata po tome sto spava danju, jede eukaliptus, i najjaktivnija je u nocnim satima?",
+        "fillable":false,
         "answers":[
             "Koala",
             "Lemur",
@@ -79,6 +86,7 @@
     {
         "question_id":8,
         "question_text":"Koje povrce je poznato po tome sto poboljsava ljudski vid?",
+        "fillable":true,
         "answers":[
             "Sargarepa",
             "Lubenica",
@@ -90,6 +98,7 @@
     {
         "question_id":9,
         "question_text":"Koji slatkis je najopasniji po pse",
+        "fillable":true,
         "answers":[
             "Cokolada",
             "Smoki",
@@ -101,6 +110,7 @@
     {
         "question_id":10,
         "question_text":"Koje od navedenih boja ne pripada bojama duge",
+        "fillable":false,
         "answers":[
             "Plava",
             "Crvena",
