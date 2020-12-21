@@ -76,7 +76,7 @@ $("#quizStart").click(function () {
         sessionStorage.setItem('username', username)
         $("#userData").slideToggle();
         $("#quizContainer").slideDown();
-
+        startTimer();
     }
 })
 $("#reset").click(function () {
@@ -145,9 +145,10 @@ let validateAnswer = function (answOpt) {
     } else {
         return 0;
     }
-
+    
 }
 let getNextQuestion = function () {
+    startTimer();
     let finish = false;
     let inputs = $("input");
     for (let i = 0; i < inputs.length; i++) {
@@ -175,11 +176,14 @@ let getNextQuestion = function () {
 let finishQuiz = function () {
     storeResults();
     showResults();
+    $("#timerContainer").slideUp();
+    stopTimer();
     $("#quizContainer").slideToggle();
 }
 let interval;
 let time = 20;
 function timer(){
+    $("#timer").text("00:" + time);
     interval = setInterval(function(){
         time--;
         $("#timer").text("00:" + time);
@@ -192,6 +196,8 @@ function timer(){
 
 }
 function startTimer(){
+    stopTimer();
+    $("#timerContainer").slideDown()
     time = 20;
     timer();
 }
