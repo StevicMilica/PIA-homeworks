@@ -118,6 +118,8 @@ let reset = function () {
 }
 
 let validateAnswer = function (answOpt) {
+    if (answOpt == null)
+        return 0;
     let answer = null;
     let answered = false;
     if (!questionsData[qIndex].fillable) {
@@ -133,8 +135,7 @@ let validateAnswer = function (answOpt) {
         if (!answered) {
             userAnswers[qIndex] = -1;
         }
-    }
-    else{
+    } else {
         answer = $("#answerText").val();
         if (!answer == '') {
             userAnswers[qIndex] = -1;
@@ -145,7 +146,7 @@ let validateAnswer = function (answOpt) {
     } else {
         return 0;
     }
-    
+
 }
 let getNextQuestion = function () {
     startTimer();
@@ -182,25 +183,39 @@ let finishQuiz = function () {
 }
 let interval;
 let time = 20;
-function timer(){
+
+function timer() {
     $("#timer").text("00:" + time);
-    interval = setInterval(function(){
+    interval = setInterval(function () {
         time--;
         $("#timer").text("00:" + time);
-        if(time<10)
-        $("#timer").text("00:0" + time);
-        if(time <= 0){
+        if(timer >= 10){
+            $("#timer").css("color","black")
+        }
+        else if (time < 10){
+            $("#timer").text("00:0" + time);
+            $("#timer").css("color","red")
+        }
+        else if (time <= 0) {
+            validateAnswer(null);
+            $("#timeExpired").slideDown();
+            setTimeout(function () {
+                $("#timeExpired").slideUp();
+                getNextQuestion();
+            }, 1000)
             clearInterval(interval)
         }
     }, 1000);
 
 }
-function startTimer(){
+
+function startTimer() {
+    time = 20;
     stopTimer();
     $("#timerContainer").slideDown()
-    time = 20;
     timer();
 }
-function stopTimer(){
+
+function stopTimer() {
     clearInterval(interval);
 }
