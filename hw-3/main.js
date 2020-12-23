@@ -2,8 +2,10 @@ let questionsData = null;
 let correctCount = 0;
 let userAnswers = []
 let qIndex = 0;
+
 $(document).ready(function () {
 
+ 
     $("body").fadeIn();
 })
 let loadQuestionData = function (index) {
@@ -98,9 +100,31 @@ let getResults = function () {
     if (res == null) {
         res = []
     }
+    for (let i = 0; i < res.length - 1; i++) {
+        let max = res[i]
+        let maxInd = i
+        for (let j = i + 1; j < res.length; j++) {
+            if (res[j].result > max.result ) {
+                max = res[j];
+                maxInd = j
+            }
+            if (res[j].result == max.result && res[j].userName < max.userName) {
+                max = res[j];
+                maxInd = j;
+            }
+        }
+        console.log(max)
+        if (res[i].result < max.result) {
+            let temp = res[i]
+            res[i] = max
+            res[maxInd] = temp
+        }
+    }
+
+
     return res;
 }
-
+getResults()
 let storeResults = function () {
     let results = getResults();
     let userName = sessionStorage.getItem("username");
