@@ -189,14 +189,12 @@ function timer() {
     interval = setInterval(function () {
         time--;
         $("#timer").text("00:" + time);
-        if(timer >= 10){
-            $("#timer").css("color","black")
-        }
-        else if (time < 10){
+
+        if (time < 10) {
             $("#timer").text("00:0" + time);
-            $("#timer").css("color","red")
+            $("#timer").css("color", "red")
         }
-        else if (time <= 0) {
+        if (time <= 0) {
             validateAnswer(null);
             $("#timeExpired").slideDown();
             setTimeout(function () {
@@ -211,6 +209,7 @@ function timer() {
 
 function startTimer() {
     time = 20;
+    $("#timer").css("color", "black")
     stopTimer();
     $("#timerContainer").slideDown()
     timer();
