@@ -23,7 +23,7 @@
         </div>
 
     </nav>
-    <h1 class = "text-center mt-3">Filmovi</h1>
+    <h1 class = "text-center mt-3">Dodaj film</h1>
     <div class="content">
         <div class="movie-list">
             <div class="movie-list-item">

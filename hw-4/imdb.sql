@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 13, 2021 at 03:54 PM
+-- Generation Time: Jan 13, 2021 at 04:28 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -67,6 +67,7 @@ CREATE TABLE `movies` (
   `description` varchar(250) NOT NULL,
   `screenwriter` varchar(100) NOT NULL,
   `director` varchar(100) NOT NULL,
+  `production_house` varchar(50) NOT NULL,
   `release_year` int(11) DEFAULT NULL,
   `poster` blob NOT NULL,
   `duration` int(11) NOT NULL
