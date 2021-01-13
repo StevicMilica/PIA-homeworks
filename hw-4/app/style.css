@@ -8,4 +8,12 @@
     padding:50px;
 }
 .success-message {
+   float: right;
+   z-index: 3;
+   position: absolute;
+   /*newly added*/
+   right: 5px;
+   /*newly added*/
+   top: 5px;
+   /*newly added*/
 }

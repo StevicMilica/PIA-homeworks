@@ -6,9 +6,7 @@
     <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <div class = "alert alert-success success-message">
-            <p>Success message</p>
-        </div>
+   
    <?php include('server.php')?>
    <?php if(isset($_SESSION['message'])): ?>
         <div class = "alert alert-success success-message">
@@ -21,7 +19,7 @@
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="link-secondary" href="#"><?php echo $_SESSION['username']?></a>
+        <a class="link-secondary" href="#"><?php echo $_SESSION['username']?> - Odjavi se</a>
       </div>
       <div class="col-4 text-center">
         <h3 class="blog-header-logo text-dark" href="#">IMDB copycat</h3>

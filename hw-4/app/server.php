@@ -53,13 +53,22 @@
         else{
             $username = $_POST['username'];
             $password = md5($_POST['password']);
-            $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-            $results = mysqli_query($mysqli,$query);
-
+            // $query = "SELECT * FROM users";
+            $query = "SELECT username,role,password FROM users WHERE username = '$username' AND password = '$password'";
+            $results = $mysqli->query($query);
             if (mysqli_num_rows($results) == 1) {
-                $_SESSION['username'] = $username;
-  	            $_SESSION['message'] = "Uspesno logovanje";
-  	            header('location: home.php');
+                $data = $results->fetch_assoc();
+                if($data['role'] == 'user'){
+                    $_SESSION['username'] = $username;
+  	                $_SESSION['message'] = "Uspesno logovanje";
+                    header('location: home.php');
+                }
+                if($data['role'] == 'admin'){
+                    $_SESSION['username'] = $username;
+  	                $_SESSION['message'] = "Uspesno logovanje";
+                    header('location: admin.php');
+                    
+                }
   	        }else {
   	            header('location: index.php');
   		        array_push($errors, "Greska pri logovanju.");
