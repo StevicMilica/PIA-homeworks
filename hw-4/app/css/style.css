@@ -1,0 +1,132 @@
+.login-form{
+ 
+    border: 5px solid #777;
+    border-radius: 20px;
+    padding: 10rem;
+    width: 50% !important;
+    background-color: #e7e7e7;
+    padding:50px;
+}
+.success-message {
+   float: right;
+   z-index: 3;
+   position: absolute;
+   /*newly added*/
+   right: 5px;
+   /*newly added*/
+   top: 5px;
+   /*newly added*/
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#e7e7e7;
+}
+.logo{
+flex:0.5;
+}
+.nav-links > ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav-links > ul > li{
+    padding: 20px;
+    list-style: none;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+.movies-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.movie-container{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 500px;
+    background-color: red;    
+}
+.movie-container > .movie-image{
+    /* width: 100%;
+    height: 70%; */
+    flex: 1;
+    background-color: blue;
+}
+.movie-container > .movie-details{
+    flex:0.5;
+}
+.movie-list{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    flex-wrap: wrap;
+    
+}
+.movie-list > .movie-list-item{
+    margin: .5rem;
+    width: 100%;
+    display: flex;
+    background-color: blue;
+}
+.movie-list-item > .list-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 250px; */
+    flex:0.2;
+    background-color: red;
+}
+.list-img > img{
+    width:250px;
+    object-fit: contain;
+    /* height: 100px; */
+}
+.movie-list-item > .list-details{
+    flex: 1.5;
+    background-color:green;
+    display: flex;
+    justify-content: space-around;
+}
+.list-details > .movie-details{
+    background-color: hotpink;
+    flex: 0.9;
+}
+.input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid aliceblue;
+}
+
+.movie-list-item>.movie-actions{
+    background-color: turquoise;
+    flex:0.25 !important;
+}
+.detail-item{
+    display: flex;
+    margin-bottom:20px;
+}
+.detail-item > .detail-title{
+    flex:1;
+}
+.detail-item > .detail-input{
+    flex:2;
+}
+.errors{
+    padding:20px !important;
+    margin-right: 20px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2px solid #842029;
+}
+

@@ -137,8 +137,53 @@
             }
         }
     }
+    if(isset($_POST['edit']) && $_POST['edit']){
+        $id = $_POST['id'];
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $screenwriter = $_POST['screenwriter'];
+        $director = $_POST['director'];
+        $actors = $_POST['actors'];
+        $production_house = $_POST['production_house'];
+        $release_year = $_POST['release_year'];
+        $genres = $_POST['genres'];
+        $duration = $_POST['duration'];
+        
+        $query = "
+        UPDATE movies 
+        SET 
+        title = '$title',
+        description = '$description',
+        screenwriter = '$screenwriter',
+        director = '$director',
+        actors = '$actors',
+        production_house = '$production_house',
+        release_year = $release_year,
+        genres = '$genres',
+        duration = $duration
+        WHERE id = $id";
+        if($mysqli->query($query) === TRUE){
+            $_SESSION['message'] = 'Film je uspesno izmenjen';
+            header('location: admin.php');
+        }
+        else{
+            echo "Greska: " . $mysqli->error;
+        }
+    }
+    if(isset($_POST['delete']) && $_POST['delete']){
+        $id = $_POST['id'];
+        $query = "DELETE FROM movies WHERE id = $id";
+        if($mysqli->query($query) === TRUE){
+            $_SESSION['message'] = "Uspesno izbrisan film";
+            header("location: admin.php");
+        }
+        else{
+            echo 'Greska';
+             echo "Greska: " . $mysqli->error;
+
+        }
+    }
 
 
 ?>
 	
-<?php echo php_ini_loaded_file(); ?>
