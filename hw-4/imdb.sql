@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 10, 2021 at 12:52 AM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Host: localhost
+-- Generation Time: Jan 13, 2021 at 03:54 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -86,6 +86,20 @@ CREATE TABLE `movies_cast` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `movie_rating`
+--
+
+CREATE TABLE `movie_rating` (
+  `id` int(11) NOT NULL,
+  `movie_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rate` int(11) NOT NULL,
+  `comment` varchar(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -99,6 +113,15 @@ CREATE TABLE `users` (
   `role` varchar(10) NOT NULL DEFAULT 'user',
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `email`, `password`, `role`, `created_at`) VALUES
+(1, 'petartest', 'Petar', 'Peric', 'petar@petrovic.rs', '098f6bcd4621d373cade4e832627b4f6', 'user', '2021-01-13 14:51:37'),
+(2, 'test', 'Test', 'Test', 'test@mail.com', 'cc03e747a6afbbcbf8be7668acfebee5', 'admin', '2021-01-13 14:58:16'),
+(3, 'testuser', 'test', 'test', 'test@test.rs', 'cc03e747a6afbbcbf8be7668acfebee5', 'user', '2021-01-13 15:24:02');
 
 --
 -- Indexes for dumped tables
@@ -137,6 +160,14 @@ ALTER TABLE `movies_cast`
   ADD KEY `actor_id` (`actor_id`);
 
 --
+-- Indexes for table `movie_rating`
+--
+ALTER TABLE `movie_rating`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `movie_id` (`movie_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -165,10 +196,16 @@ ALTER TABLE `movies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `movie_rating`
+--
+ALTER TABLE `movie_rating`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -187,6 +224,13 @@ ALTER TABLE `genre_list`
 ALTER TABLE `movies_cast`
   ADD CONSTRAINT `movies_cast_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `movies_cast_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `movie_rating`
+--
+ALTER TABLE `movie_rating`
+  ADD CONSTRAINT `movie_rating_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `movie_rating_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
