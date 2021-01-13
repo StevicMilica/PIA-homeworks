@@ -1,0 +1,11 @@
+.login-form{
+ 
+    border: 5px solid #777;
+    border-radius: 20px;
+    padding: 10rem;
+    width: 50% !important;
+    background-color: #e7e7e7;
+    padding:50px;
+}
+.success-message {
+}
