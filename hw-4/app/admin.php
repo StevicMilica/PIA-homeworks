@@ -9,7 +9,7 @@
 
 <body>
     <?php include('server.php')?>
-
+   
     <nav class="nav">
         <div class="logo">
             <h3 class="blog-header-logo text-dark" href="#">IMDB copycat</h3>
@@ -21,32 +21,62 @@
                 <li><a class="link-secondary" href="/index.php"><?php echo $_SESSION['username']?> - Odjavi se</a></li>
             </ul>
         </div>
-
     </nav>
+    <?php 
+        // $mysqli = new mysqli_connect('localhost', 'root', 'Sql2016', 'imdb');
+        $query = "SELECT * FROM movies";
+        $results = $mysqli->query($query);
+        // $data = $results->fetch_assoc();
+        // var_dump($results);
+        // while($row = $results->fetch_assoc())
+        // {
+        //     echo $row['title']." ";
+        // }
+    ?> 
     <h1 class = "text-center mt-3">Dodaj film</h1>
     <div class="content">
         <div class="movie-list">
+            <?php while($row = $results->fetch_assoc()): ?>
             <div class="movie-list-item">
-                <div class="list-img">a</div>
-                <div class="list-details">
-                    <div class="movie-details">Details</div>
-                    <div class="movie-actions">Actions</div>
+                <div class="list-img">
+                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
                 </div>
-            </div>
-            <div class="movie-list-item">
-                <div class="list-img">a</div>
                 <div class="list-details">
-                    <div class="movie-details">Details</div>
-                    <div class="movie-actions">Actions</div>
+                    <div class="movie-details text-center">
+                        <div class="movie-title">
+                            <h3><?php echo $row['title'];?></h3>
+                        </div>
+                        <div class="movie-description">
+                            <h4><?php echo $row['description'];?></h4>
+                        </div>
+                        <div class="movie-genre">
+                            <h4><?php echo $row['genres'];?></h4>
+                        </div>
+                        <div class="movie-genre">
+                            <h4><?php echo $row['screenwriter'];?></h4>
+                        </div>
+                        <div class="movie-genre">
+                            <h4><?php echo $row['director'];?></h4>
+                        </div>
+                        <div class="movie-genre">
+                            <h4><?php echo $row['production_house'];?></h4>
+                        </div>
+                        <div class="movie-genre">
+                            <h4><?php echo $row['release_year'];?></h4>
+                        </div>
+                        <div class="movie-genre">
+                            <h4><?php echo $row['duration'];?>min</h4>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="movie-list-item">
-                <div class="list-img">a</div>
-                <div class="list-details">
-                    <div class="movie-details">Details</div>
-                    <div class="movie-actions">Actions</div>
+                <div class="movie-actions d-flex flex-column justify-content-center">
+                    <button class = "btn btn-primary m-3 ">Izmeni</button>
+                    <button class = "btn btn-danger m-3">Ukloni</button>
+
                 </div>
+
             </div>
+            <?php endwhile?>
         </div>
     </div>
 

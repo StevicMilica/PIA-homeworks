@@ -29,7 +29,13 @@
             </ul>
         </div>
     </nav>
+
+    
+
     <div class="content">
+
+ 
+
 
         <div class="movies-list">
             <div class="movie-container">
@@ -73,11 +79,6 @@
                 <div class="movie-details"></div>
             </div>
         </div>
-
-        
-
-
-
     </div>
 
 
