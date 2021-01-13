@@ -101,3 +101,12 @@ flex:0.5;
     background-color: turquoise;
     flex:0.3;
 }
+.errors{
+    padding:20px !important;
+    margin-right: 20px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2px solid #842029;
+}
+

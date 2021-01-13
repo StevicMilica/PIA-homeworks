@@ -74,10 +74,71 @@
   		        array_push($errors, "Greska pri logovanju.");
         	}
         }
-
-
-
+    }
+    if(isset($_POST['add_movie'])){
+        // var_dump($_POST);
+        // var_dump($_FILES);
+        // retrurn;
+        if($_POST['title'] == ""){
+            array_push($errors,'Naslov je obavezan');
+        }
+        if($_POST['description'] == ""){
+            array_push($errors,'Opis je obavezan');
+        }
+        if($_POST['genre'] == ""){
+            array_push($errors,'Zanr je obavezan');
+        }
+        if($_POST['screenwriter'] == ""){
+            array_push($errors,'Scenarista je obavezan');
+        }
+        if($_POST['director'] == ""){
+            array_push($errors,'Reziser je obavezan');
+        }
+        if($_POST['production_house'] == ""){
+            array_push($errors,'Produkcijska kuca je obavezna');
+        }
+        if($_POST['actors'] == ""){
+            array_push($errors,'Glumci su obavezni');
+        }
+        if($_POST['duration'] == ""){
+            array_push($errors,'Trajanje je obavezno');
+        }
+        if($_POST['release_year'] == ""){
+            array_push($errors,'Godina izdavanja je obavezna');
+        }
+        if($_FILES['poster']['name'] == ""){
+            array_push($errors,'Poster je obavezan');
+        }
+        
+        var_dump($errors);
+        if(!empty($errors)){
+            $_SESSION['errors'] = $errors;
+            header("location: add_movie.php");
+        }
+        else{
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $genre = $_POST['genre'];
+            $screenwriter = $_POST['screenwriter'];
+            $director = $_POST['director'];
+            $production_house = $_POST['production_house'];
+            $actors = $_POST['actors'];
+            $duration = $_POST['duration'];
+            $release_year = $_POST['release_year'];
+            $poster = addslashes(file_get_contents($_FILES['poster']['tmp_name']));
+            $query = "INSERT INTO movies(title,description,genres,screenwriter,director,production_house,actors,duration,release_year,poster) VALUES ('$title','$description','$genre','$screenwriter','$director','$production_house','$actors',$duration,$release_year,'$poster')";
+            if($mysqli->query($query) === TRUE){
+                $_SESSION['message'] = "Film je uspesno dodat u bazu podataka";
+                header("location: admin.php");
+            }
+            else{
+                  echo "Error: " . $query . "<br>" . $mysqli->error;
+                  return;
+            }
+        }
     }
 
 
 ?>
+	
+<?php echo php_ini_loaded_file(); ?>
