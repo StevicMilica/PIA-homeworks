@@ -30,15 +30,19 @@
         </div>
     </nav>
 
-    
+    <?php 
+        $query = "SELECT * FROM movies";
+        $results = $mysqli->query($query);
+    ?>
 
     <div class="content">
-
+        
  
 
 
         <div class="movies-list">
-            <div class="movie-container">
+        
+        <div class="movie-container">
                 <div class="movie-image"></div>
                 <div class="movie-details"></div>
             </div>

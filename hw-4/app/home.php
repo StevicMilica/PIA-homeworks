@@ -18,7 +18,8 @@
     <?php unset($_SESSION['message']) ?>
 
     <?php 
-        $query = "SELECT * FROM MOVIES";
+        $query = "SELECT * FROM movies";
+        $results = $mysqli->query($query);
     ?>
     <nav class="nav">
         <div class="logo">
@@ -43,46 +44,19 @@
             ?>
         
         <div class="movies-list">
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
+            <?php while($row = $results->fetch_assoc()): ?>
+                <div class="movie-container">
+                    <div class="movie-image">
+                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
+                    </div>
+                    <div class="movie-details">
+                        <p class = "text-center"><?php echo $row['title'];?></p>
+                        <p class = "text-center"><?php echo $row['genres'];?></p>
+                        <p class = "text-center"><?php echo $row['duration'];?>min</p>
+                        <p class = "text-center">Prosecna ocena:</p>
+                    </div>
+                </div>
+            <?php endwhile?>
         </div>
 
         

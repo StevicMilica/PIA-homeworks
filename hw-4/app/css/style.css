@@ -61,8 +61,15 @@ flex:0.5;
     flex: 1;
     background-color: blue;
 }
+.movie-image > img{
+    display: block;
+    margin:auto;
+    height: 100%;
+    object-fit: contain;
+}
 .movie-container > .movie-details{
     flex:0.5;
+    padding: 20px 0px;
 }
 .movie-list{
     display: flex;

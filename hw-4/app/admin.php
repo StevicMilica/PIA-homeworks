@@ -18,6 +18,7 @@
             <ul>
                 <li><a class="link-secondary" href="home.php">Pocetna</a></li>
                 <li><a class="link-secondary" href="add_movie.php">Dodaj film</a></li>
+                <li><a class="link-secondary" href="movies.php">Lista filmova</a></li>
                 <li><a class="link-secondary" href="/index.php"><?php echo $_SESSION['username']?> - Odjavi se</a></li>
             </ul>
         </div>
@@ -26,7 +27,7 @@
         $query = "SELECT * FROM movies";
         $results = $mysqli->query($query);
     ?>
-    <h1 class="text-center mt-3">Dodaj film</h1>
+    <h1 class="text-center mt-3">Lista filmova</h1>
     <div class="content">
         <div class="movie-list">
             <?php while($row = $results->fetch_assoc()): ?>

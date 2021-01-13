@@ -18,6 +18,7 @@
             <ul>
                 <li><a class="link-secondary" href="home.php">Pocetna</a></li>
                 <li><a class="link-secondary" href="add_movie.php">Dodaj film</a></li>
+                <li><a class="link-secondary" href="admin.php">Lista filmova</a></li>
                 <li><a class="link-secondary" href="/index.php"><?php echo $_SESSION['username']?> - Odjavi se</a></li>
             </ul>
         </div>
