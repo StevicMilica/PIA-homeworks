@@ -35,10 +35,6 @@
 
             }
         }
-
-
-            
-
     }
     if(isset ($_POST['log_user'])){
         //data validation
@@ -182,6 +178,21 @@
              echo "Greska: " . $mysqli->error;
 
         }
+    }
+    if(isset($_POST['rate_movie'])){
+        $user_id = $_POST['user_id'];
+        $movie_id = $_POST['movie_id'];
+        $rating = $_POST['movieRating'];
+        $comment = $_POST['rateComment'];
+        $query = "INSERT INTO movie_ratings(user_id,movie_id,rating,comment) VALUES ($user_id,$movie_id,$rating,'$comment')";
+        if($mysqli -> query($query) === TRUE){
+            $_SESSION['message'] = "Uspesno ste ocenili film";
+            header('location: movie_details.php?movie='.$movie_id);
+        }
+        else{
+            echo 'Greska: '. $mysqli->error;
+        }
+
     }
 
 

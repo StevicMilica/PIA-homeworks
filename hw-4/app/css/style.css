@@ -118,6 +118,28 @@ flex:0.5;
     background-color: turquoise;
     flex:0.25 !important;
 }
+.movie-details-container{
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 100vh; */
+}
+.movie-details-container > .movie-banner{
+    background-color: red;
+    /* display: flex; */
+    /* align-items: center; */
+    /* flex:1; */
+}
+.movie-details-container > .movie-reviews{
+   background-color: blue;
+
+    flex:2;
+}
+.movie-banner{
+  
+}
+.movie-banner > img{
+    width:100%;
+}
 .detail-item{
     display: flex;
     margin-bottom:20px;
@@ -136,4 +158,10 @@ flex:0.5;
     justify-content: space-around;
     border: 2px solid #842029;
 }
-
+.message{
+    position:absolute !important;
+}
+.actor-data{
+    list-style: none;
+    padding: 0!important;
+}

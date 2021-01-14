@@ -11,7 +11,7 @@
 
     <?php include('server.php')?>
     <?php if(isset($_SESSION['message'])): ?>
-    <div class="alert alert-success success-message">
+    <div class="message alert alert-success success-message">
         <p><?php echo $_SESSION['message'] ?></p>
     </div>
     <?php endif ?>
@@ -42,7 +42,6 @@
         //     echo $user;
         // }
             ?>
-        
         <div class="movies-list">
             <?php while($row = $results->fetch_assoc()): ?>
                 <div class="movie-container">
@@ -54,6 +53,8 @@
                         <p class = "text-center"><?php echo $row['genres'];?></p>
                         <p class = "text-center"><?php echo $row['duration'];?>min</p>
                         <p class = "text-center">Prosecna ocena:</p>
+                        <a class = "btn btn-primary w-100" href="movie_details.php?movie=<?php echo $row['id'];?>">Detalji filma</a>
+
                     </div>
                 </div>
             <?php endwhile?>

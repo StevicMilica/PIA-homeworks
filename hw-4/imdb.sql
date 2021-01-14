@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 14, 2021 at 12:09 AM
+-- Generation Time: Jan 14, 2021 at 02:41 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -102,16 +102,23 @@ CREATE TABLE `movies_cast` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movie_rating`
+-- Table structure for table `movie_ratings`
 --
 
-CREATE TABLE `movie_rating` (
+CREATE TABLE `movie_ratings` (
   `id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `rate` int(11) NOT NULL,
-  `comment` varchar(250) DEFAULT NULL
+  `rating` int(11) NOT NULL,
+  `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `movie_ratings`
+--
+
+INSERT INTO `movie_ratings` (`id`, `movie_id`, `user_id`, `rating`, `comment`) VALUES
+(1, 1, 3, 10, 'Ovo je najbolji film koji sam ikada odgledao. Tople preporuke svima na pregled.');
 
 -- --------------------------------------------------------
 
@@ -135,11 +142,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `email`, `password`, `role`, `created_at`) VALUES
-(1, 'petartest', 'Petar', 'Peric', 'petar@petrovic.rs', '098f6bcd4621d373cade4e832627b4f6', 'user', '2021-01-13 14:51:37'),
-(2, 'test', 'Test', 'Test', 'test@mail.com', 'cc03e747a6afbbcbf8be7668acfebee5', 'admin', '2021-01-13 14:58:16'),
-(3, 'testuser', 'test', 'test', 'test@test.rs', 'cc03e747a6afbbcbf8be7668acfebee5', 'user', '2021-01-13 15:24:02'),
-(4, 'testadmin', 'Test', 'Admin', 'admin@test.com', 'cc03e747a6afbbcbf8be7668acfebee5', 'admin', '2021-01-13 17:54:03'),
-(5, 'testuser', 'Test', 'User', 'user@test.com', 'cc03e747a6afbbcbf8be7668acfebee5', 'user', '2021-01-13 17:54:29');
+(1, 'testuser', 'Test', 'User', 'user@test.com', 'cc03e747a6afbbcbf8be7668acfebee5', 'user', '2021-01-14 00:37:47'),
+(2, 'testadmin', 'Test', 'Admin', 'admin@test.com', 'cc03e747a6afbbcbf8be7668acfebee5', 'admin', '2021-01-14 00:38:22'),
+(3, 'test1', 'T', '1', '1@test.com', '5a105e8b9d40e1329780d62ea2265d8a', 'user', '2021-01-14 02:26:11'),
+(4, 'test2', 'T', '2', '2@test.rs', 'ad0234829205b9033196ba818f7a872b', 'user', '2021-01-14 02:26:31'),
+(5, 'test3', 'T', '3', '3@test.com', '8ad8757baa8564dc136c1e07507f4a98', 'user', '2021-01-14 02:26:52'),
+(6, 'test4', 'T', '4', '4@test.com', '86985e105f79b95d6bc918fb45ec7727', 'user', '2021-01-14 02:27:17'),
+(7, 'test5', 'T', '5', '5@test.com', 'e3d704f3542b44a621ebed70dc0efe13', 'user', '2021-01-14 02:27:46');
 
 --
 -- Indexes for dumped tables
@@ -178,9 +187,9 @@ ALTER TABLE `movies_cast`
   ADD KEY `actor_id` (`actor_id`);
 
 --
--- Indexes for table `movie_rating`
+-- Indexes for table `movie_ratings`
 --
-ALTER TABLE `movie_rating`
+ALTER TABLE `movie_ratings`
   ADD PRIMARY KEY (`id`),
   ADD KEY `movie_id` (`movie_id`),
   ADD KEY `user_id` (`user_id`);
@@ -189,7 +198,8 @@ ALTER TABLE `movie_rating`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -214,16 +224,16 @@ ALTER TABLE `movies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `movie_rating`
+-- AUTO_INCREMENT for table `movie_ratings`
 --
-ALTER TABLE `movie_rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `movie_ratings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -244,11 +254,11 @@ ALTER TABLE `movies_cast`
   ADD CONSTRAINT `movies_cast_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `movie_rating`
+-- Constraints for table `movie_ratings`
 --
-ALTER TABLE `movie_rating`
-  ADD CONSTRAINT `movie_rating_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `movie_rating_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+ALTER TABLE `movie_ratings`
+  ADD CONSTRAINT `movie_ratings_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `movie_ratings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -8,17 +8,17 @@
 </head>
 
 <body>
-
+    
+    <?php session_start() ?>
     <div class="container login-form">
-        <div class="errors text-center alert-danger">
-            <?php session_start() ?>
-            <?php if(isset($_SESSION['errors'])):?>
+        <?php if(isset($_SESSION['errors'])):?>
+            <div class="errors text-center alert-danger">
                 <?php foreach($_SESSION['errors'] as $error): ?>
                 <h6><?php echo $error; ?></h6><br>
                 <?php endforeach ?>
                 <?php unset($_SESSION['errors']) ?>
+            </div>
             <?php endif ?>
-        </div>
         <form action="/server.php" method="post">
             <div class="row text-center">
                 <h3>Ulogujte se</h3>
