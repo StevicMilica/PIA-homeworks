@@ -8,7 +8,6 @@
 </head>
 
 <body>
-
     <?php include('server.php')?>
     <?php if(isset($_SESSION['message'])): ?>
     <div class="message alert alert-success success-message">
@@ -21,18 +20,8 @@
         $query = "SELECT * FROM movies";
         $results = $mysqli->query($query);
     ?>
-    <nav class="nav">
-        <div class="logo">
-            <h3 class="blog-header-logo text-dark" href="#">IMDB copycat</h3>
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a class="link-secondary" href="home.php">Pocetna</a></li>
-                <li><a class="link-secondary" href="movies.php">Filmovi</a></li>
-                <li><a class="link-secondary" href="/index.php"><?php echo $_SESSION['username']?> - Odjavi se</a></li>
-            </ul>
-        </div>
-    </nav>
+    <?php include('nav.php')?>
+    
     <div class="content">
         <?php
         // $mysqli = mysqli_connect('localhost', 'root', 'Sql2016', 'imdb');

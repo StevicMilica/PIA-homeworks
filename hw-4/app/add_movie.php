@@ -9,21 +9,7 @@
 
 <body>
     <?php include('server.php')?>
-
-    <nav class="nav">
-        <div class="logo">
-            <h3 class="blog-header-logo text-dark" href="#">IMDB copycat</h3>
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a class="link-secondary" href="home.php">Pocetna</a></li>
-                <li><a class="link-secondary" href="add_movie.php">Dodaj film</a></li>
-                <li><a class="link-secondary" href="admin.php">Lista filmova</a></li>
-                <li><a class="link-secondary" href="/index.php"><?php echo $_SESSION['username']?> - Odjavi se</a></li>
-            </ul>
-        </div>
-
-    </nav>
+    <?php include('nav.php')?>
     <h1 class="text-center mt-3">Dodaj Film</h1>
     <div class="content">
 <?php if(isset($_SESSION['errors'])):?>

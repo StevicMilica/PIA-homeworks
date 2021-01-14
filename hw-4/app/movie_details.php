@@ -9,18 +9,7 @@
 
 <body>
     <?php include('server.php')?>
-    <nav class="nav">
-        <div class="logo">
-            <h3 class="blog-header-logo text-dark" href="#">IMDB copycat</h3>
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a class="link-secondary" href="home.php">Pocetna</a></li>
-                <li><a class="link-secondary" href="movies.php">Filmovi</a></li>
-                <li><a class="link-secondary" href="/index.php"><?php echo $_SESSION['username']?> - Odjavi se</a></li>
-            </ul>
-        </div>
-    </nav>
+    <?php include('nav.php')?>
     <?php 
         $movie_id = $_GET['movie'];
         $query = "SELECT * FROM movies WHERE id = $movie_id";
@@ -28,7 +17,10 @@
         $results = $results->fetch_assoc();
         $actors = explode(',',$results['actors']);
 
-        $query = "SELECT * FROM movie_ratings WHERE movie_id = $movie_id";
+        $query = "SELECT users.username,users.first_name,users.last_name,movie_ratings.rating, movie_ratings.comment, movie_ratings.created_at
+        FROM movie_ratings
+        INNER JOIN users on users.id = movie_ratings.user_id
+        WHERE movie_id = $movie_id";
         $reviews = $mysqli -> query($query);
 
 
@@ -62,26 +54,31 @@
         <div class="movie-reviews">
             <?php while($row = $reviews->fetch_assoc()):?>
             <div class="review">
-                <?php echo $row['comment'];?>
+                <div class="user-data">
+                    <p class="username"><?php echo $row['username']?></p>
+                    <p class="date"><?php echo $row['created_at']?></p>
+                </div>
+                <div class="comment">
+                    <?php echo $row['comment'];?>
+                </div>
             </div>
             <?php endwhile?>
 
             <div class="review-form text-center mt-3 container">
                 <h4>Ocenite film</h4>
-                <form action="server.php" method = "POST">
-                        <div class="mb-3">
-                            <label for="movieRating" class="form-label">Vasa ocena (1-10)</label>
-                            <input type="number" name = "movieRating" min = "1" max = "10" class="form-control" id="movieRating"
-                               >
-                        </div>
-                        <div class="mb-3">
-                            <label for="rateComment" class="form-label">Komentar na film</label>
-                            <textarea  class="form-control" name = "rateComment" id="rateComment"></textarea>
-                        </div>
-                        <input type = "hidden" name = "rate_movie" value = 1>
-                        <input type = "hidden" name = "movie_id" value = "<?php echo $results['id'];?>"\>
-                        <input type = "hidden" name = "user_id" value = "<?php echo $user_id;?>"\>
-                        <button type="submit" class="btn btn-primary w-100">Oceni</button>
+                <form action="server.php" method="POST">
+                    <div class="mb-3">
+                        <label for="movieRating" class="form-label">Vasa ocena (1-10)</label>
+                        <input type="number" name="movieRating" min="1" max="10" class="form-control" id="movieRating">
+                    </div>
+                    <div class="mb-3">
+                        <label for="rateComment" class="form-label">Komentar na film</label>
+                        <textarea class="form-control" name="rateComment" id="rateComment"></textarea>
+                    </div>
+                    <input type="hidden" name="rate_movie" value=1>
+                    <input type="hidden" name="movie_id" value="<?php echo $results['id'];?>" \>
+                    <input type="hidden" name="user_id" value="<?php echo $user_id;?>" \>
+                    <button type="submit" class="btn btn-primary w-100">Oceni</button>
                 </form>
             </div>
 

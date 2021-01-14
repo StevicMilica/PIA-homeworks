@@ -8,7 +8,6 @@
 </head>
 
 <body>
-    
     <?php session_start() ?>
     <div class="container login-form">
         <?php if(isset($_SESSION['errors'])):?>
