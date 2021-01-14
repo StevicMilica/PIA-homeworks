@@ -21,35 +21,39 @@
         $results = $mysqli->query($query);
     ?>
     <?php include('nav.php')?>
-    
-    <div class="content">
-        <?php
-        // $mysqli = mysqli_connect('localhost', 'root', 'Sql2016', 'imdb');
-        // $query = "SELECT * FROM users";
-        // $data = $mysqli->query($query);
-        // foreach($data->fetch_assoc() as $user){
-        //     echo $user;
-        // }
-            ?>
-        <div class="movies-list">
-            <?php while($row = $results->fetch_assoc()): ?>
-                <div class="movie-container">
-                    <div class="movie-image">
-                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
-                    </div>
-                    <div class="movie-details">
-                        <p class = "text-center"><?php echo $row['title'];?></p>
-                        <p class = "text-center"><?php echo $row['genres'];?></p>
-                        <p class = "text-center"><?php echo $row['duration'];?>min</p>
-                        <p class = "text-center">Prosecna ocena:</p>
-                        <a class = "btn btn-primary w-100" href="movie_details.php?movie=<?php echo $row['id'];?>">Detalji filma</a>
+    <div class="page-actions">
+        <div class="search-form">
+            <input type="text" id="search" class="" placeholder="Pretraga">
+            <button class = "btn"><i class="bi-search"></i></button>
+        </div>
+        <div class="display-mode">
+            <i class="bi-grid-fill active" id = "grid"></i>
+            <i class="bi-list" id = "list"></i>
+        </div>
 
-                    </div>
+    </div>
+    <div class="content-grid" id = "container">
+
+        <div class="movies-grid" id = "content">
+            <?php while($row = $results->fetch_assoc()): ?>
+            <div class="movie-container">
+                <div class="movie-image">
+                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
                 </div>
+                <div class="movie-details">
+                    <p class="text-center"><?php echo $row['title'];?></p>
+                    <p class="text-center"><?php echo $row['genres'];?></p>
+                    <p class="text-center"><?php echo $row['duration'];?>min</p>
+                    <p class="text-center">Prosecna ocena:</p>
+                    <a class="btn btn-primary w-100" href="movie_details.php?movie=<?php echo $row['id'];?>">Detalji
+                        filma</a>
+
+                </div>
+            </div>
             <?php endwhile?>
         </div>
 
-        
+
 
 
 
@@ -63,12 +67,15 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
+    <script src = "js/main.js"></script>
 </body>
 
 </html>

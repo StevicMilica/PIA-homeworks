@@ -68,7 +68,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="movie-actions d-flex flex-column justify-content-center">
+                <div class="movie-actions">
                     <button class="btn btn-primary m-3 "
                         onclick="submitMovieEdit(<?php echo $row['id'];?>)">Izmeni</button>
                     <button class="btn btn-danger m-3" onclick="deleteMovie(<?php echo $row['id'];?>)">Ukloni</button>
