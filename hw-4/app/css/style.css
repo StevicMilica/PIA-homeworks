@@ -68,11 +68,18 @@ flex:0.5;
 .movies-list>.movie-container {
     margin: 1rem;
     display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 500px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* width: 300px; */
+    /* height: 500px; */
     background-color: #71707D;
-    width: 100%;
+    width: 80%;
+}
+.movies-list>.movie-container>.movie-image {
+    flex:.5;
+}
+.movies-list>.movie-container > .movie-details{
+    flex:1;
 }
 
 .movies-grid > .movie-container{
@@ -117,8 +124,8 @@ flex:0.5;
     flex-flow: row;
     width: 100%;
     flex-wrap: wrap;
-    
 }
+
 .movie-list > .movie-list-item{
     margin: .5rem;
     width: 100%;
