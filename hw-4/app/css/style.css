@@ -269,7 +269,7 @@ flex:0.5;
 .display-mode > i{
     padding: 10px;
     background-color: #eee;
-    margin:0 2px;
+    margin:auto 2px;
     border: 1px solid #202036
 }
 
@@ -283,7 +283,7 @@ i{
     align-items: center;
     margin-left: 1rem;
 }
-.search-form>input{
+.search-input{
     display: inline !important;
     padding:.5rem;
     border:0;
@@ -296,4 +296,8 @@ i{
 }
 input:focus{
     outline:0;
+}
+.logo > h3 > a{
+    text-decoration: none;
+    color:#842029;
 }

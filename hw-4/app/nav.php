@@ -1,7 +1,7 @@
 
 <nav class="nav">
         <div class="logo">
-            <h3 class="blog-header-logo text-dark" href="#">IMDB copycat</h3>
+            <h3 class="blog-header-logo text-dark"><a href="home.php">IMDB copycat</a></h3>
         </div>
         <div class="nav-links">
             <ul>
@@ -14,3 +14,4 @@
             </ul>
         </div>
     </nav>
+

@@ -198,7 +198,12 @@
         else{
             echo 'Greska: '. $mysqli->error;
         }
-
+    }
+    if(isset($_GET['search'])){
+        $search = $_GET['searchText'];
+        $query = "SELECT * FROM movies WHERE title LIKE '%".$search."%'";
+        $results = $mysqli->query($query);
+        var_dump($results);
     }
 
 

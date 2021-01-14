@@ -21,17 +21,7 @@
         $results = $mysqli->query($query);
     ?>
     <?php include('nav.php')?>
-    <div class="page-actions">
-        <div class="search-form">
-            <input type="text" id="search" class="" placeholder="Pretraga">
-            <button class = "btn"><i class="bi-search"></i></button>
-        </div>
-        <div class="display-mode">
-            <i class="bi-grid-fill active" id = "grid"></i>
-            <i class="bi-list" id = "list"></i>
-        </div>
-
-    </div>
+    <?php include('pageactions.php')?>
     <div class="content-grid" id = "container">
 
         <div class="movies-grid" id = "content">

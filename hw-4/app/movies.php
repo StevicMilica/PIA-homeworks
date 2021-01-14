@@ -8,80 +8,40 @@
 </head>
 
 <body>
-
     <?php include('server.php')?>
     <?php if(isset($_SESSION['message'])): ?>
-    <div class="alert alert-success success-message">
+    <div class="message alert alert-success success-message">
         <p><?php echo $_SESSION['message'] ?></p>
     </div>
     <?php endif ?>
     <?php unset($_SESSION['message']) ?>
 
-    <nav class="nav">
-        <div class="logo">
-            <h3 class="blog-header-logo text-dark" href="#">IMDB copycat</h3>
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a class="link-secondary" href="home.php">Pocetna</a></li>
-                <li><a class="link-secondary" href="movies.php">Filmovi</a></li>
-                <li><a class="link-secondary" href="/logout.php"><?php echo $_SESSION['username']?> - Odjavi se</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <?php 
-        $query = "SELECT * FROM movies";
+        $search = $_GET['searchText'];
+        $query = "SELECT * FROM movies WHERE title LIKE '%".$search."%'";
         $results = $mysqli->query($query);
     ?>
+    <?php include('nav.php')?>
+    <?php include('pageactions.php')?>
+    <div class="content-grid" id = "container">
 
-    <div class="content">
-        
- 
+        <div class="movies-grid" id = "content">
+            <?php while($row = $results->fetch_assoc()): ?>
+            <div class="movie-container">
+                <div class="movie-image">
+                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
+                </div>
+                <div class="movie-details">
+                    <p class="text-center"><?php echo $row['title'];?></p>
+                    <p class="text-center"><?php echo $row['genres'];?></p>
+                    <p class="text-center"><?php echo $row['duration'];?>min</p>
+                    <p class="text-center">Prosecna ocena:</p>
+                    <a class="btn btn-primary w-100" href="movie_details.php?movie=<?php echo $row['id'];?>">Detalji
+                        filma</a>
 
-
-        <div class="movies-list">
-        
-        <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
+                </div>
             </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
-            <div class="movie-container">
-                <div class="movie-image"></div>
-                <div class="movie-details"></div>
-            </div>
+            <?php endwhile?>
         </div>
     </div>
 
@@ -93,12 +53,15 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
+    <script src = "js/main.js"></script>
 </body>
 
 </html>
