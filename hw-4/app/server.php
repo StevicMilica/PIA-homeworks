@@ -32,8 +32,7 @@
                 $_SESSION['username'] = $username;
             }
             else{
-                  echo "Error: " . $sql . "<br>" . $mysqli->error;
-
+                  echo "Error: " . $query . "<br>" . $mysqli->error;
             }
         }
     }
@@ -206,7 +205,6 @@
         }
         else{
                   echo "Error: " . $query . "<br>" . $mysqli->error;
-
         }
     }
 

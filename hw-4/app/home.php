@@ -9,12 +9,7 @@
 
 <body>
     <?php include('server.php')?>
-    <?php if(isset($_SESSION['message'])): ?>
-    <div class="message alert alert-success success-message">
-        <p><?php echo $_SESSION['message'] ?></p>
-    </div>
-    <?php endif ?>
-    <?php unset($_SESSION['message']) ?>
+
 
     <?php 
         $query = "SELECT * FROM movies";
