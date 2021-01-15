@@ -12,7 +12,12 @@
     <?php include('nav.php')?>
     <?php 
         $movie_id = $_GET['movie'];
-        $query = "SELECT * FROM movies WHERE id = $movie_id";
+        $query = "SELECT movies.id,movies.title,movies.duration, movies.description, movies.screenwriter,movies.director, movies.actors,movies.production_house,movies.release_year, movies.genres,movies.poster, AVG(movie_ratings.rating) as avg_rate
+         FROM movies
+         INNER JOIN movie_ratings on movies.id = movie_ratings.movie_id
+         WHERE movies.id = $movie_id
+         GROUP BY (movies.title)
+         ORDER BY (avg_rate) DESC";
         $results = $mysqli -> query($query);
         $results = $results->fetch_assoc();
         $actors = explode(',',$results['actors']);
@@ -52,6 +57,7 @@
                 </ul>
                 <p>Scenograf: <?php echo $results['screenwriter']?></p>
                 <p>Reziser: <?php echo $results['director']?></p>
+                <p>Prosecna ocena <?php echo $results['avg_rate']?></p>
             </div>
         </div>
         <div class="movie-reviews">

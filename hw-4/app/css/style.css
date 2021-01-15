@@ -87,9 +87,23 @@ flex:0.5;
     display: flex;
     flex-direction: column;
     width: 300px;
+    /* flex-basis: auto; */
     height: 500px;
     background-color: #71707D;
 }
+@media only screen and (max-width:1022px){
+    .movies-grid>.movie-container {
+        width: 40%;
+        /* flex-basis: auto; */
+    }
+}
+@media only screen and (max-width:576px) {
+    .movies-grid>.movie-container {
+        width: 49%;
+        /* flex-basis: auto; */
+    }
+}
+
 .movie-details > a{
     background-color:#9B98FD !important;
     border: 1px solid #918ef8 !important;

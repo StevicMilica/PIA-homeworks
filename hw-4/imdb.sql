@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2021 at 03:08 AM
+-- Generation Time: Jan 15, 2021 at 03:23 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -125,7 +125,13 @@ INSERT INTO `movie_ratings` (`id`, `movie_id`, `user_id`, `rating`, `comment`, `
 (5, 1, 6, 5, 'Moze i bolje', '2021-01-14 02:54:29'),
 (6, 1, 7, 10, 'ODUSEVLJEN SAM. JEDVA CEKAM DA IZADJE DA GA \"KUPIM\"', '2021-01-14 02:54:29'),
 (7, 1, 1, 5, 'ok', '2021-01-15 02:14:03'),
-(11, 3, 8, 10, 'Odlicna komedija', '2021-01-15 03:08:04');
+(11, 3, 8, 10, 'Odlicna komedija', '2021-01-15 03:08:04'),
+(12, 1, 8, 7, 'Dobar Film', '2021-01-15 03:18:57'),
+(13, 3, 7, 9, 'Jedna od najboljih komedija', '2021-01-15 14:54:24'),
+(14, 3, 1, 10, 'Puno smeha, puno sala, odlicno, sve preporuke', '2021-01-15 14:54:24'),
+(15, 4, 6, 3, 'Razocarenje u odnosu na stripove', '2021-01-15 14:54:24'),
+(16, 4, 4, 10, 'Jedan od najboljih filmova. ', '2021-01-15 14:54:24'),
+(17, 5, 6, 10, 'Jackie Chan sam radi svoje vratolomije :O', '2021-01-15 14:54:24');
 
 -- --------------------------------------------------------
 
@@ -235,7 +241,7 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT for table `movie_ratings`
 --
 ALTER TABLE `movie_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`

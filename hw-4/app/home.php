@@ -9,10 +9,13 @@
 
 <body>
     <?php include('server.php')?>
-
-
     <?php 
-        $query = "SELECT * FROM movies";
+        $query = "SELECT movies.id, movies.title,movies.duration, movies.description, movies.screenwriter,movies.director, movies.actors,movies.production_house,movies.release_year, movies.genres,movies.poster, AVG(movie_ratings.rating) as avg_rate
+         FROM movies
+         INNER JOIN movie_ratings on movies.id = movie_ratings.movie_id
+         GROUP BY (movies.title)
+         ORDER BY (avg_rate) DESC
+         ";
         $results = $mysqli->query($query);
     ?>
     <?php include('nav.php')?>
@@ -29,7 +32,7 @@
                     <p class="text-center"><?php echo $row['title'];?></p>
                     <p class="text-center"><?php echo $row['genres'];?></p>
                     <p class="text-center"><?php echo $row['duration'];?>min</p>
-                    <p class="text-center">Prosecna ocena:</p>
+                    <p class="text-center">Prosecna ocena: <strong><?php echo round($row['avg_rate'],1)?></strong></p>
                     <a class="btn btn-primary w-50 d-block mx-auto" href="movie_details.php?movie=<?php echo $row['id'];?>">Detalji
                         filma</a>
 
