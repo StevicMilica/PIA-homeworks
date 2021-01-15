@@ -35,7 +35,7 @@
                     <p class="text-center"><?php echo $row['genres'];?></p>
                     <p class="text-center"><?php echo $row['duration'];?>min</p>
                     <p class="text-center">Prosecna ocena:</p>
-                    <a class="btn btn-primary w-100" href="movie_details.php?movie=<?php echo $row['id'];?>">Detalji
+                    <a class="btn btn-primary w-50 d-block mx-auto" href="movie_details.php?movie=<?php echo $row['id'];?>">Detalji
                         filma</a>
 
                 </div>

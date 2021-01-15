@@ -29,6 +29,9 @@
         $user_data = $mysqli->query($query);
         $user_data = $user_data -> fetch_assoc();
         $user_id = $user_data['id'];
+        
+        $query = "SELECT * FROM movie_ratings WHERE user_id = $user_id AND movie_id = $movie_id";
+        $reviewed = $mysqli -> query($query);
     ?>
     <div class="movie-details-container">
         <div class="movie-banner">
@@ -63,7 +66,7 @@
                 </div>
             </div>
             <?php endwhile?>
-
+            <?php if($reviewed->num_rows == 0):?>
             <div class="review-form text-center mt-3 container">
                 <h4>Ocenite film</h4>
                 <form action="server.php" method="POST">
@@ -81,14 +84,36 @@
                     <button type="submit" class="btn btn-primary w-100">Oceni</button>
                 </form>
             </div>
+            <?php else:?>
+            <?php 
+                $query = "SELECT * FROM movie_ratings WHERE user_id = $user_id AND movie_id = $movie_id";
+                $review = $mysqli->query($query);
+                $review = $review->fetch_assoc();
+            ?>
+            <div class="review-form text-center mt-3 container">
+                <h2 class="text-center">Vec ste ocenili film. Mozete izmeniti ocenu u svako doba</h2>
+                <form action="server.php" method="POST">
+                    <div class="mb-3">
+                        <label for="movieRating" class="form-label">Vasa ocena (1-10)</label>
+                        <input value = "<?php echo $review['rating']?>" type="number" name="movieRating" min="1" max="10" class="form-control" id="movieRating">
+                    </div>
+                    <div class="mb-3">
+                        <label for="rateComment" class="form-label">Komentar na film</label>
+                        <textarea class="form-control" name="rateComment" id="rateComment"><?php echo $review['comment']?></textarea>
+                    </div>
+                    <input type="hidden" name="movie_id" value="<?php echo $results['id'];?>" \>
+                    <input type="hidden" name="user_id" value="<?php echo $user_id;?>" \>
+                    <input type = "hidden" value = "<?php echo $movie_id?>" name = "movie_id">
+                    <input type = "hidden" value = "<?php echo $user_id?>" name = "user_id">
+                    <input type = "hidden" name = "editRating" value = "1"?>
+                    <button type="submit" class="btn btn-warning w-100">Izmeni</button>
+                    
+                </form>
+            </div>
+            <?php endif;?>
 
         </div>
     </div>
-
-
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"

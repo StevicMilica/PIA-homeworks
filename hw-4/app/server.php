@@ -3,7 +3,6 @@
     $mysqli = mysqli_connect('localhost', 'root', 'Sql2016', 'imdb');
     $errors = [];
     include('middleware.php');
-
     if(isset ($_POST['reg_user'])){
         //data validation
         if($_POST['first_name'] == "")
@@ -74,7 +73,6 @@
         }
     }
     if(isset($_POST['add_movie'])){
-        middleware();
         // var_dump($_POST);
         // var_dump($_FILES);
         // retrurn;
@@ -137,7 +135,6 @@
         }
     }
     if(isset($_POST['edit']) && $_POST['edit']){
-        middleware();
         $id = $_POST['id'];
         $title = $_POST['title'];
         $description = $_POST['description'];
@@ -171,7 +168,6 @@
         }
     }
     if(isset($_POST['delete']) && $_POST['delete']){
-        middleware();
         $id = $_POST['id'];
         $query = "DELETE FROM movies WHERE id = $id";
         if($mysqli->query($query) === TRUE){
@@ -185,7 +181,6 @@
         }
     }
     if(isset($_POST['rate_movie'])){
-        middleware();
         $user_id = $_POST['user_id'];
         $movie_id = $_POST['movie_id'];
         $rating = $_POST['movieRating'];
@@ -199,13 +194,29 @@
             echo 'Greska: '. $mysqli->error;
         }
     }
+    if(isset($_POST['editRating'])){
+        $rate = $_POST['movieRating'];
+        $comment = $_POST['rateComment'];
+        $user_id = $_POST['user_id'];
+        $movie_id = $_POST['movie_id'];
+        $query = "UPDATE movie_ratings SET rating = $rate, comment = '$comment' WHERE movie_id = $movie_id AND user_id = $user_id";
+        if($mysqli->query($query) === TRUE){
+            $_SESSION['message'] = "Uspesna izmena ocene";
+            header("location: movie_details.php?movie=".$movie_id);
+        }
+        else{
+                  echo "Error: " . $query . "<br>" . $mysqli->error;
+
+        }
+    }
+
     if(isset($_GET['search'])){
         $search = $_GET['searchText'];
         $query = "SELECT * FROM movies WHERE title LIKE '%".$search."%'";
         $results = $mysqli->query($query);
         var_dump($results);
     }
-
+    
 
 ?>
 	

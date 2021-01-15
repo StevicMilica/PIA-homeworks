@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 14, 2021 at 02:41 AM
+-- Generation Time: Jan 15, 2021 at 03:08 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -110,15 +110,22 @@ CREATE TABLE `movie_ratings` (
   `movie_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
-  `comment` text NOT NULL
+  `comment` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `movie_ratings`
 --
 
-INSERT INTO `movie_ratings` (`id`, `movie_id`, `user_id`, `rating`, `comment`) VALUES
-(1, 1, 3, 10, 'Ovo je najbolji film koji sam ikada odgledao. Tople preporuke svima na pregled.');
+INSERT INTO `movie_ratings` (`id`, `movie_id`, `user_id`, `rating`, `comment`, `created_at`) VALUES
+(1, 1, 3, 10, 'Ovo je najbolji film koji sam ikada odgledao. Tople preporuke svima na pregled.', '2021-01-14 02:45:57'),
+(3, 1, 4, 3, 'meh.', '2021-01-14 02:54:29'),
+(4, 1, 5, 7, 'Solidan film', '2021-01-14 02:54:29'),
+(5, 1, 6, 5, 'Moze i bolje', '2021-01-14 02:54:29'),
+(6, 1, 7, 10, 'ODUSEVLJEN SAM. JEDVA CEKAM DA IZADJE DA GA \"KUPIM\"', '2021-01-14 02:54:29'),
+(7, 1, 1, 5, 'ok', '2021-01-15 02:14:03'),
+(11, 3, 8, 10, 'Odlicna komedija', '2021-01-15 03:08:04');
 
 -- --------------------------------------------------------
 
@@ -148,7 +155,8 @@ INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `email`, `pass
 (4, 'test2', 'T', '2', '2@test.rs', 'ad0234829205b9033196ba818f7a872b', 'user', '2021-01-14 02:26:31'),
 (5, 'test3', 'T', '3', '3@test.com', '8ad8757baa8564dc136c1e07507f4a98', 'user', '2021-01-14 02:26:52'),
 (6, 'test4', 'T', '4', '4@test.com', '86985e105f79b95d6bc918fb45ec7727', 'user', '2021-01-14 02:27:17'),
-(7, 'test5', 'T', '5', '5@test.com', 'e3d704f3542b44a621ebed70dc0efe13', 'user', '2021-01-14 02:27:46');
+(7, 'test5', 'T', '5', '5@test.com', 'e3d704f3542b44a621ebed70dc0efe13', 'user', '2021-01-14 02:27:46'),
+(8, 'test6', 'Test', '6', '6@test.com', '4cfad7076129962ee70c36839a1e3e15', 'user', '2021-01-15 03:03:53');
 
 --
 -- Indexes for dumped tables
@@ -227,13 +235,13 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT for table `movie_ratings`
 --
 ALTER TABLE `movie_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

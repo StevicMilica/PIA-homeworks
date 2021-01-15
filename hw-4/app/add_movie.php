@@ -11,7 +11,7 @@
     <?php include('server.php')?>
     <?php include('nav.php')?>
     <h1 class="text-center mt-3">Dodaj Film</h1>
-    <div class="content">
+    <div class="content container">
 <?php if(isset($_SESSION['errors'])):?>
             <div class="errors text-center alert-danger">
                 <?php foreach($_SESSION['errors'] as $error): ?>
