@@ -73,7 +73,7 @@ flex:0.5;
     /* width: 300px; */
     /* height: 500px; */
     background-color: #71707D;
-    width: 80%;
+    width: 95%;
 }
 .movies-list>.movie-container>.movie-image {
     flex:.5;
@@ -127,6 +127,7 @@ flex:0.5;
     margin:auto;
     height: 100%;
     object-fit: contain;
+    max-width: 100%;
 }
 .movie-container > .movie-details{
     color:#e7e7e7 !important;
@@ -202,6 +203,7 @@ flex:0.5;
     flex-direction: column;
     justify-content: space-between;
     flex:2;
+    min-height: 91vh;
 }
 .movie-banner{
   
@@ -269,6 +271,9 @@ flex:0.5;
     .movie-actions{
         flex-direction: row !important;
         justify-content: space-around;
+    }
+    .movie-banner{
+        width:100%;
     }
 }
 .page-actions{

@@ -17,11 +17,11 @@
     <?php unset($_SESSION['message']) ?>
 
     <?php 
-        $search = $_GET['searchText'];
+        $search = strtolower($_GET['searchText']);
         $query = "SELECT movies.id,movies.title,movies.duration, movies.description, movies.screenwriter,movies.director, movies.actors,movies.production_house,movies.release_year, movies.genres,movies.poster, AVG(movie_ratings.rating) as avg_rate
          FROM movies
          INNER JOIN movie_ratings on movies.id = movie_ratings.movie_id
-         WHERE title LIKE '%".$search."%'
+         WHERE LOWER(title) LIKE '%".$search."%' OR LOWER(genres) LIKE '%".$search."%'
          GROUP BY (movies.title)
          ORDER BY (avg_rate) DESC ";
         $results = $mysqli->query($query);
