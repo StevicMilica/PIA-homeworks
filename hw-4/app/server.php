@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $mysqli = mysqli_connect('localhost', 'root', 'Sql2016', 'imdb');
+    $mysqli = mysqli_connect('localhost', 'root', '', 'imdb');
     $errors = [];
     include('middleware.php');
     if(isset ($_POST['reg_user'])){

@@ -57,10 +57,14 @@
                 </ul>
                 <p>Scenograf: <?php echo $results['screenwriter']?></p>
                 <p>Reziser: <?php echo $results['director']?></p>
-                <p>Prosecna ocena <?php echo $results['avg_rate']?></p>
+                <p>Prosecna ocena: <?php echo round($results['avg_rate'],2)?></p>
             </div>
         </div>
         <div class="movie-reviews">
+            <div class = "mt-3">
+                <h4 class="text-center">Ocene korisnika</h4>
+                <h5 class="text-center"><?php echo mysqli_num_rows($reviews)?> Ocene </h5>
+            </div>
             <?php while($row = $reviews->fetch_assoc()):?>
             <div class="review">
                 <div class="user-data">
@@ -101,19 +105,21 @@
                 <form action="server.php" method="POST">
                     <div class="mb-3">
                         <label for="movieRating" class="form-label">Vasa ocena (1-10)</label>
-                        <input value = "<?php echo $review['rating']?>" type="number" name="movieRating" min="1" max="10" class="form-control" id="movieRating">
+                        <input value="<?php echo $review['rating']?>" type="number" name="movieRating" min="1" max="10"
+                            class="form-control" id="movieRating">
                     </div>
                     <div class="mb-3">
                         <label for="rateComment" class="form-label">Komentar na film</label>
-                        <textarea class="form-control" name="rateComment" id="rateComment"><?php echo $review['comment']?></textarea>
+                        <textarea class="form-control" name="rateComment"
+                            id="rateComment"><?php echo $review['comment']?></textarea>
                     </div>
                     <input type="hidden" name="movie_id" value="<?php echo $results['id'];?>" \>
                     <input type="hidden" name="user_id" value="<?php echo $user_id;?>" \>
-                    <input type = "hidden" value = "<?php echo $movie_id?>" name = "movie_id">
-                    <input type = "hidden" value = "<?php echo $user_id?>" name = "user_id">
-                    <input type = "hidden" name = "editRating" value = "1"?>
+                    <input type="hidden" value="<?php echo $movie_id?>" name="movie_id">
+                    <input type="hidden" value="<?php echo $user_id?>" name="user_id">
+                    <input type="hidden" name="editRating" value="1" ?>
                     <button type="submit" class="btn btn-warning w-100">Izmeni</button>
-                    
+
                 </form>
             </div>
             <?php endif;?>
@@ -129,7 +135,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
-    <script src = "js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
