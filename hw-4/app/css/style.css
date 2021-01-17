@@ -99,7 +99,7 @@ flex:0.5;
 }
 @media only screen and (max-width:576px) {
     .movies-grid>.movie-container {
-        width: 49%;
+        width: 100%;
         /* flex-basis: auto; */
     }
 }
@@ -274,6 +274,18 @@ flex:0.5;
     }
     .movie-banner{
         width:100%;
+    }
+    p{
+        white-space: unset !important;
+    }
+    .page-actions{
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: wrap;
+    }
+    .logo{
+        margin: 0 auto !important;
+        text-align: center;
     }
 }
 .page-actions{
