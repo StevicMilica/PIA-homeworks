@@ -1,4 +1,4 @@
-<nav class="nav">
+<nav class="nav bg-transparent">
     <div class="logo">
         <h3 class="blog-header-logo text-dark"><a href="home.php">IMDB copycat</a></h3>
     </div>

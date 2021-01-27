@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2021 at 03:23 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Jan 27, 2021 at 07:52 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,40 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `imdb`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `actors`
---
-
-CREATE TABLE `actors` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(25) NOT NULL,
-  `last_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `genres`
---
-
-CREATE TABLE `genres` (
-  `id` int(11) NOT NULL,
-  `title` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `genre_list`
---
-
-CREATE TABLE `genre_list` (
-  `movie_id` int(11) NOT NULL,
-  `genre_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -91,17 +57,6 @@ INSERT INTO `movies` (`id`, `title`, `description`, `screenwriter`, `director`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movies_cast`
---
-
-CREATE TABLE `movies_cast` (
-  `movie_id` int(11) NOT NULL,
-  `actor_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `movie_ratings`
 --
 
@@ -131,7 +86,8 @@ INSERT INTO `movie_ratings` (`id`, `movie_id`, `user_id`, `rating`, `comment`, `
 (14, 3, 1, 10, 'Puno smeha, puno sala, odlicno, sve preporuke', '2021-01-15 14:54:24'),
 (15, 4, 6, 3, 'Razocarenje u odnosu na stripove', '2021-01-15 14:54:24'),
 (16, 4, 4, 10, 'Jedan od najboljih filmova. ', '2021-01-15 14:54:24'),
-(17, 5, 6, 10, 'Jackie Chan sam radi svoje vratolomije :O', '2021-01-15 14:54:24');
+(17, 5, 6, 10, 'Jackie Chan sam radi svoje vratolomije :O', '2021-01-15 14:54:24'),
+(18, 5, 1, 5, 'i nije neki.', '2021-01-27 17:58:34');
 
 -- --------------------------------------------------------
 
@@ -169,36 +125,10 @@ INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `email`, `pass
 --
 
 --
--- Indexes for table `actors`
---
-ALTER TABLE `actors`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `genres`
---
-ALTER TABLE `genres`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `genre_list`
---
-ALTER TABLE `genre_list`
-  ADD PRIMARY KEY (`movie_id`),
-  ADD KEY `genre_id` (`genre_id`);
-
---
 -- Indexes for table `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `movies_cast`
---
-ALTER TABLE `movies_cast`
-  ADD PRIMARY KEY (`movie_id`),
-  ADD KEY `actor_id` (`actor_id`);
 
 --
 -- Indexes for table `movie_ratings`
@@ -220,18 +150,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `actors`
---
-ALTER TABLE `actors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `genres`
---
-ALTER TABLE `genres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
@@ -241,7 +159,7 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT for table `movie_ratings`
 --
 ALTER TABLE `movie_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -252,20 +170,6 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `genre_list`
---
-ALTER TABLE `genre_list`
-  ADD CONSTRAINT `genre_list_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `genre_list_ibfk_2` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `movies_cast`
---
-ALTER TABLE `movies_cast`
-  ADD CONSTRAINT `movies_cast_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `movies_cast_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `movie_ratings`

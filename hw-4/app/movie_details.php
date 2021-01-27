@@ -39,13 +39,12 @@
         $reviewed = $mysqli -> query($query);
     ?>
     <div class="movie-details-container">
-        <div class="movie-banner">
+        <div class="px-3 mt-3 row">
+            <div class="data col-md-4">
+                <h2 class = "text-center"><?php echo $results['title']?> (<?php echo $results['release_year']?>)</h2>
+                <p class = "text-center"></p>
+                <p>Producentska kuca: <?php echo $results['production_house']?></p>
 
-            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $results['poster'] ).'"/>'?>
-            <div class="data text-center">
-                <h3><?php echo $results['title']?></h3>
-                <p><?php echo $results['production_house']?></p>
-                <p><?php echo $results['release_year']?></p>
                 <p>Zanr: <?php echo $results['genres']?></p>
                 <ul class="actor-data">
                     <li>
@@ -59,39 +58,29 @@
                 <p>Reziser: <?php echo $results['director']?></p>
                 <p>Prosecna ocena: <?php echo round($results['avg_rate'],2)?></p>
             </div>
-        </div>
-        <div class="movie-reviews">
-            <div class = "mt-3">
-                <h4 class="text-center">Ocene korisnika</h4>
-                <h5 class="text-center"><?php echo mysqli_num_rows($reviews)?> Ocene </h5>
+            <div class="col-md-4">
+                <?php echo '<img class = "d-block mx-auto detail-img" src="data:image/jpeg;base64,'.base64_encode( $results['poster'] ).'"/>'?>
+                <br><p class = "text-center"><?php echo $results['description']?></p>
+
             </div>
-            <?php while($row = $reviews->fetch_assoc()):?>
-            <div class="review">
-                <div class="user-data">
-                    <p class="username"><?php echo $row['username']?></p>
-                    <p class="date"><?php echo $row['created_at']?></p>
-                </div>
-                <div class="comment">
-                    <?php echo $row['comment'];?>
-                </div>
-            </div>
-            <?php endwhile?>
+
+            <div class="col-md-4">
             <?php if($reviewed->num_rows == 0):?>
-            <div class="review-form text-center mt-3 container">
+            <div class="review-form text-center mt-3">
                 <h4>Ocenite film</h4>
                 <form action="server.php" method="POST">
                     <div class="mb-3">
                         <label for="movieRating" class="form-label">Vasa ocena (1-10)</label>
-                        <input type="number" name="movieRating" min="1" max="10" class="form-control" id="movieRating">
+                        <input type="number" name="movieRating" min="1" max="10" class="form-input form-control" id="movieRating">
                     </div>
                     <div class="mb-3">
                         <label for="rateComment" class="form-label">Komentar na film</label>
-                        <textarea class="form-control" name="rateComment" id="rateComment"></textarea>
+                        <textarea class="form-control form-input" name="rateComment" id="rateComment"></textarea>
                     </div>
                     <input type="hidden" name="rate_movie" value=1>
                     <input type="hidden" name="movie_id" value="<?php echo $results['id'];?>" \>
                     <input type="hidden" name="user_id" value="<?php echo $user_id;?>" \>
-                    <button type="submit" class="btn btn-primary w-100">Oceni</button>
+                    <button type="submit" class="btn btn-primary form-btn">Oceni</button>
                 </form>
             </div>
             <?php else:?>
@@ -100,17 +89,17 @@
                 $review = $mysqli->query($query);
                 $review = $review->fetch_assoc();
             ?>
-            <div class="review-form text-center mt-3 container">
-                <h2 class="text-center">Vec ste ocenili film. Mozete izmeniti ocenu u svako doba</h2>
+            <div class="review-form text-center mt-3">
+                <h4 class="text-center">Izmeni ocenu</h4>
                 <form action="server.php" method="POST">
                     <div class="mb-3">
                         <label for="movieRating" class="form-label">Vasa ocena (1-10)</label>
                         <input value="<?php echo $review['rating']?>" type="number" name="movieRating" min="1" max="10"
-                            class="form-control" id="movieRating">
+                            class="form-control form-input" id="movieRating">
                     </div>
                     <div class="mb-3">
                         <label for="rateComment" class="form-label">Komentar na film</label>
-                        <textarea class="form-control" name="rateComment"
+                        <textarea class="form-control form-input" name="rateComment"
                             id="rateComment"><?php echo $review['comment']?></textarea>
                     </div>
                     <input type="hidden" name="movie_id" value="<?php echo $results['id'];?>" \>
@@ -118,12 +107,31 @@
                     <input type="hidden" value="<?php echo $movie_id?>" name="movie_id">
                     <input type="hidden" value="<?php echo $user_id?>" name="user_id">
                     <input type="hidden" name="editRating" value="1" ?>
-                    <button type="submit" class="btn btn-warning w-100">Izmeni</button>
+                    <button type="submit" class="btn btn-warning form-btn">Izmeni</button>
 
                 </form>
             </div>
             <?php endif;?>
+            
+            </div>
 
+        </div>
+        <div class="movie-reviews">
+            <div class="mt-3">
+                <h4 class="text-center">Ocene korisnika</h4>
+                <h5 class="text-center"><?php echo mysqli_num_rows($reviews)?> Ocene </h5>
+            </div>
+            <?php while($row = $reviews->fetch_assoc()):?>
+            <div class="review">
+                <div class="user-data">
+                    <p class="username"><?php echo $row['username']?>: <i><?php echo $row['rating']?>/10</i></p>
+                    <p class="date"><?php echo $row['created_at']?></p>
+                </div>
+                <div class="comment">
+                    <?php echo $row['comment'];?>
+                </div>
+            </div>
+            <?php endwhile?>
         </div>
     </div>
 

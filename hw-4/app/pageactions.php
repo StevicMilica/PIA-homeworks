@@ -1,4 +1,4 @@
- <div class="page-actions">
+ <div class="page-actions bg-transparent">
         <div class="search-form">
             <form method = "get" action = "movies.php">
             <input type="text" name = "searchText" id="search" class="search-input" placeholder="Pretraga">
