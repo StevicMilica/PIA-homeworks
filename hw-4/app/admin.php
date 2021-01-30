@@ -10,7 +10,7 @@
 <body>
     <?php include('server.php')?>
     <?php include('nav.php')?>
-
+    <?php include('grantAccess.php')?>
     <?php 
         $query = "SELECT * FROM movies";
         $results = $mysqli->query($query);

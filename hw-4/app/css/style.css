@@ -332,7 +332,7 @@ i{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 1rem;
+    margin: 0 1rem;
 }
 .search-input{
     display: inline !important;
