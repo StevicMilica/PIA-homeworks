@@ -37,12 +37,10 @@
                     <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
                 </div>
                 <div class="movie-details">
-                    <p class="text-center"><?php echo $row['title'];?></p>
+                    <p class = "text-center"><a class="movie-link" href="movie_details.php?movie=<?php echo $row['id'];?>"><?php echo $row['title'];?></a></p>
                     <p class="text-center"><?php echo $row['genres'];?></p>
                     <p class="text-center"><?php echo $row['duration'];?>min</p>
                     <p class="text-center">Prosecna ocena: <strong><?php echo round($row['avg_rate'],1)?></strong></p>
-                    <a class="btn btn-primary w-100" href="movie_details.php?movie=<?php echo $row['id'];?>">Detalji
-                        filma</a>
 
                 </div>
             </div>
