@@ -10,7 +10,7 @@
 <body>
     <?php include('server.php')?>
     <?php include('nav.php')?>
-    
+
     <?php 
         $query = "SELECT * FROM movies";
         $results = $mysqli->query($query);
@@ -20,62 +20,81 @@
         <div class="movie-list">
             <?php while($row = $results->fetch_assoc()): ?>
             <div class="movie-list-item">
-                <div class="list-img">
-                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
+                <div class="banner admin-banner">
+                    <?php echo '<img class = "row" src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
+                <div class="row movie-actions">
+                <div class="col-md-6">
+                    <button class="btn btn-primary movie-action"
+                        onclick="submitMovieEdit(<?php echo $row['id'];?>)">Izmeni</button>
                 </div>
-                <div class="list-details">
+                <div class="col-md-6">
+                    <button class="btn btn-danger movie-action" onclick="deleteMovie(<?php echo $row['id'];?>)">Ukloni</button>
+                </div>
+            </div>
+                </div>
+                <div class="list-details admin-details">
                     <div class="movie-details p-3">
                         <form action="server.php" method="POST" id="form-<?php echo $row['id'];?>">
                             <input type="hidden" name="id" value="<?php echo $row['id'];?>">
-                            <div class="detail-item">
-                                <h3 class="detail-title">Naslov:</h3>
-                                <input class="input detail-input" name="title" value="<?php echo $row['title'];?>">
+                            <div class="detail-item row">
+                                <h3 class="detail-title col-md-3">Naslov:</h3>
+                                <input class="input detail-input col-md-9" name="title"
+                                    value="<?php echo $row['title'];?>">
                             </div>
-                            <div class="detail-item">
-                                <h5 class="detail-title">Opis: </h5>
-                                <textarea name="description" class="input detail-input"><?php echo $row['description'];?></textarea>
+                            <div class="detail-item row">
+                                <h5 class="detail-title col-md-3">Opis: </h5>
+                                <textarea name="description"
+                                    class="col-md-9 input detail-input"><?php echo $row['description'];?></textarea>
                             </div>
-                            <div class="detail-item"><br>
-                                <h5 class="detail-title">Zanr: </h5>
-                                <input class="input detail-input" name="genres" value="<?php echo $row['genres'];?>"></>
+                            <div class="detail-item row"><br>
+                                <h5 class="detail-title col-md-3">Zanr: </h5>
+                                <input class="input detail-input col-md-9" name="genres"
+                                    value="<?php echo $row['genres'];?>"></>
                             </div>
-                            <div class="detail-item">
-                                <h5 class="detail-title">Scenarista:</h5>
-                                <input class="input detail-input" name="screenwriter" value="<?php echo $row['screenwriter'];?>">
+                            <div class="row detail-item group-items">
+                                <div class="col-lg-4 detail-item">
+                                    <h6 class="detail-title">Scenarista:</h6>
+                                    <input class="input detail-input text-center" name="screenwriter"
+                                        value="<?php echo $row['screenwriter'];?>">
+                                </div>
+                                <div class="col-lg-4 detail-item">
+                                    <h6 class="detail-title">Reziser:</h6>
+                                    <input id="director" class="input detail-input text-center" name="director"
+                                        value="<?php echo $row['director'];?>">
+                                </div>
+                                <div class=" col-lg-4 detail-item">
+                                    <h6 class="detail-title">Producentska kuca: </h6>
+                                    <input name="production_house" class="input detail-input text-center"
+                                        value="<?php echo $row['production_house'];?>">
+                                </div>
                             </div>
-                            <div class="detail-item">
-                                <h5 class="detail-title">Reziser:</h5>
-                                <input class="input detail-input" name="director" value="<?php echo $row['director'];?>">
+                            <div class="detail-item row">
+                                <h6 class="detail-title col-md-3">Glumci:</h6>
+                                <textarea class="input detail-input col-md-9"
+                                    name="actors"><?php echo $row['actors'];?></textarea>
                             </div>
-                            <div class="detail-item">
-                                <h5 class="detail-title">Glumci:</h5>
-                                <textarea class="input detail-input" name="actors"><?php echo $row['actors'];?></textarea>
-                            </div>
-                            <div class=" detail-item">
-                                <h5 class="detail-title">Producentska kuca: </h5>
-                                <input name="production_house" class="input detail-input" value="<?php echo $row['production_house'];?>">
-                            </div>
-                            <div class="detail-item">
-                                <h5 class="detail-title">Godina izlaska:</h5>
-                                <input name="release_year" class="input detail-input" value="<?php echo $row['release_year'];?>">
-                            </div>
-                            <div class="detail-item">
-                                <h5 class="detail-title">Duzina trajanja (min):</h5>
-                                <input name="duration" class="input detail-input" value="<?php echo $row['duration'];?>">
+
+                            <div class="detail-item row group-items">
+                                <div class="col-md-6 detail-item">
+                                    <h6 class="detail-title">Godina izlaska:</h6>
+                                    <input name="release_year" class="input detail-input text-center"
+                                        value="<?php echo $row['release_year'];?>">
+                                </div>
+                                <div class="col-md-6 detail-item">
+                                    <h6 class="detail-title">Duzina trajanja (min):</h6>
+                                    <input name="duration" class="input detail-input text-center "
+                                        value="<?php echo $row['duration'];?>">
+                                </div>
                             </div>
                             <input type="hidden" name="edit" id="editMovie-<?php echo $row['id'];?>" value="0">
                             <input type="hidden" name="delete" id="deleteMovie-<?php echo $row['id'];?>" value="0">
                         </form>
                     </div>
                 </div>
-                <div class="movie-actions">
-                    <button class="btn btn-primary m-3 "
-                        onclick="submitMovieEdit(<?php echo $row['id'];?>)">Izmeni</button>
-                    <button class="btn btn-danger m-3" onclick="deleteMovie(<?php echo $row['id'];?>)">Ukloni</button>
 
-                </div>
 
             </div>
+            
             <?php endwhile?>
         </div>
     </div>
