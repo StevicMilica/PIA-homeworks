@@ -50,7 +50,7 @@
             $username = $_POST['username'];
             $password = md5($_POST['password']);
             // $query = "SELECT * FROM users";
-            $query = "SELECT username,role,password FROM users WHERE username = '$username' AND password = '$password'";
+            $query = "SELECT username,role,password FROM users WHERE (username = '$username' OR email = '$username') AND password = '$password'";
             $results = $mysqli->query($query);
             if (mysqli_num_rows($results) == 1) {
                 $data = $results->fetch_assoc();

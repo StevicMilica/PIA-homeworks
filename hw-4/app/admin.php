@@ -24,11 +24,11 @@
                     <?php echo '<img class = "row" src="data:image/jpeg;base64,'.base64_encode( $row['poster'] ).'"/>'?>
                 <div class="row movie-actions">
                 <div class="col-md-6">
-                    <button class="btn btn-primary movie-action"
+                    <button class="movie-action"
                         onclick="submitMovieEdit(<?php echo $row['id'];?>)">Izmeni</button>
                 </div>
                 <div class="col-md-6">
-                    <button class="btn btn-danger movie-action" onclick="deleteMovie(<?php echo $row['id'];?>)">Ukloni</button>
+                    <button class="movie-action" onclick="deleteMovie(<?php echo $row['id'];?>)">Ukloni</button>
                 </div>
             </div>
                 </div>

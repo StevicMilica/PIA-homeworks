@@ -59,7 +59,7 @@
                 <input type="file" name="poster" class="form-control" placeholder="Slika">
             </div>
             <div class="input-group mb-3">
-                <button class="btn btn-primary d-block w-100"> Dodaj</button>
+                <button class="submit-button"> Dodaj</button>
             </div>
             <input type="hidden" name="add_movie" value=1>
         </form>
